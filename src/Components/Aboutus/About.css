@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --white: #ffffff;
+  --off: #f5f5f7;
+  --black: #0a0a0a;
+  --gray: #6e6e73;
+  --lgray: #aeaeb2;
+  --accent: #bf4800;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ab-root {
+  font-family: "DM Sans", sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* ================= REVEAL ================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.85s var(--ease);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= EYEBROW ================= */
+
+.ab-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.ab-eyebrow--light {
+  color: var(--lgray);
+}
+
+/* ================= HERO ================= */
+
+.ab-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 30px;
+  background: var(--off);
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-hero__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.ab-hero__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(50px, 8vw, 120px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.ab-hero__title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.ab-hero__sub {
+  max-width: 600px;
+  margin-top: 24px;
+  font-size: 18px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* scroll hint */
+.ab-hero__scroll-hint {
+  width: 1px;
+  height: 70px;
+  margin-top: 50px;
+  background: linear-gradient(to bottom, transparent, var(--gray));
+  position: relative;
+}
+
+.ab-hero__scroll-hint span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--gray);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: float 1.8s infinite;
+}
+
+@keyframes float {
+  0% { bottom: 100%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { bottom: 0; opacity: 0; }
+}
+
+/* ================= MARQUEE ================= */
+
+.ab-marquee {
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16px 0;
+}
+
+.ab-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33%); }
+}
+
+.ab-marquee__word {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  padding: 0 25px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ab-marquee__dot {
+  color: var(--accent);
+}
+
+/* ================= SECTION ================= */
+
+.ab-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 40px;
+}
+
+/* ================= TEXT ================= */
+
+.ab-h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.ab-body {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* ================= VISION ================= */
+
+.ab-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.ab-vision__img-wrap {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.ab-vision__img {
+  width: 100%;
+  transition: 0.6s ease;
+}
+
+.ab-vision__img-wrap:hover .ab-vision__img {
+  transform: scale(1.05);
+}
+
+/* ================= PHILOSOPHY ================= */
+
+.ab-philosophy {
+  background: var(--black);
+  color: white;
+  text-align: center;
+  padding: 140px 40px;
+  position: relative;
+}
+
+.ab-philosophy__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 300;
+}
+
+.ab-philosophy__title em {
+  color: #e8c4b0;
+}
+
+/* glowing orbs */
+.ab-philosophy__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+}
+
+.ab-philosophy__orb--1 {
+  width: 500px;
+  height: 500px;
+  background: #5a1a00;
+  top: -100px;
+  right: -100px;
+}
+
+.ab-philosophy__orb--2 {
+  width: 400px;
+  height: 400px;
+  background: #1a1a2e;
+  bottom: -100px;
+  left: -100px;
+}
+
+/* ================= HIGHLIGHTS ================= */
+
+.ab-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: #e5e5e5;
+}
+
+.ab-highlight-card {
+  background: white;
+  padding: 60px;
+}
+
+.ab-highlight-card__num {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* ================= WHY ================= */
+
+.ab-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ab-why-card {
+  background: var(--off);
+  padding: 40px;
+  border-radius: 20px;
+  transition: 0.3s;
+  
+}
+
+.ab-why-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= CTA ================= */
+
+.ab-cta {
+  background: var(--black);
+  color: white;
+  text-align: center;
+  padding: 140px 50px;
+   margin-top: 20px;
+  position: relative;
+}
+
+.ab-cta__btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 16px 40px;
+  margin-top: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ab-cta__btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .ab-vision {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-why__grid {
+    grid-template-columns: 1fr;
+  }
+}
