@@ -7,6 +7,7 @@ import About from './Components/Aboutus/About'
 import Explore from './Components/Explore/Explore'
 import Timeline from "./Components/Timeline/Timeline"
 import Footer from './Components/Footer/Footer'
+import Login from './Components/Login/Login'
 
 const App = () => {
   return (
