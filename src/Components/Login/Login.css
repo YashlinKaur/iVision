@@ -1,176 +1,260 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
+/* DESKTOP = NO SCROLL */
+body{
+  overflow:hidden;
+}
+
+/* PAGE */
 .login-page{
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top left,#232528,#000000);
-    color:white;
+  height:100vh;
+  overflow:hidden;
+  background:#fafafa;
+  position:relative;
 }
 
-/* Navbar */
-
-.navbar{
-    width:100%;
-    height:70px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 80px;
-    backdrop-filter:blur(15px);
+/* BACKGROUND SHAPES */
+.login-page::before,
+.login-page::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
 }
 
-.navbar h2{
-    font-size:28px;
-    font-weight:600;
+.login-page::before{
+  width:300px;
+  height:300px;
+  background:#eef2f7;
+  top:-100px;
+  right:-100px;
 }
 
-.navbar ul{
-    display:flex;
-    gap:40px;
-    list-style:none;
+.login-page::after{
+  width:240px;
+  height:240px;
+  background:#f1f5f9;
+  bottom:-80px;
+  left:-80px;
 }
 
-.navbar li{
-    cursor:pointer;
-    color:#d1d5db;
-}
-
-/* Main */
-
+/* CONTAINER */
 .login-container{
-    min-height:calc(100vh - 70px);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:120px;
-    padding:20px;
+  height:100%;
+  max-width:1300px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 40px;
+  gap:60px;
+
+  position:relative;
+  z-index:1;
 }
 
-/* Left Side */
-
+/* LEFT */
 .left-content{
-    max-width:500px;
+  flex:1;
+  max-width:550px;
+}
+
+.tag{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:50px;
+  background:white;
+  border:1px solid #e5e7eb;
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
+  margin-bottom:25px;
+  font-size:14px;
 }
 
 .left-content h1{
-    font-size:75px;
-    font-weight:700;
-    line-height:1;
-    background:linear-gradient(
-      to right,
-      #ffffff,
-      #a5b4fc
-    );
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+  font-size:clamp(50px, 8vw, 90px);
+  line-height:0.95;
+  font-weight:900;
+  letter-spacing:-3px;
+
+  background:linear-gradient(to bottom,#111827,#6b7280);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .left-content p{
-    margin-top:20px;
-    color:#cbd5e1;
-    font-size:18px;
+  margin-top:25px;
+  font-size:18px;
+  color:#4b5563;
+  line-height:1.6;
 }
 
-/* Glass Login */
-
+/* LOGIN BOX */
 .login-box{
-    width:420px;
-    padding:40px;
-    border-radius:30px;
-
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(25px);
-
-    border:1px solid rgba(255,255,255,0.1);
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,0.4);
+  width:100%;
+  max-width:420px;
+  background:white;
+  padding:40px;
+  border-radius:30px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  flex-shrink:0;
 }
 
 .login-box h2{
-    text-align:center;
-    margin-bottom:30px;
-    font-size:32px;
+  text-align:center;
+  font-size:36px;
+  margin-bottom:25px;
+  color:#111827;
 }
 
 .login-box input{
-    width:100%;
-    padding:16px;
-    margin-bottom:18px;
-    border:none;
-    border-radius:15px;
-    background:rgba(255,255,255,0.07);
-    color:white;
-    outline:none;
+  width:100%;
+  padding:16px 18px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:14px;
+  background:#f3f4f6;
+  outline:none;
+  font-size:15px;
 }
 
-.login-box input::placeholder{
-    color:#cbd5e1;
+.login-box input:focus{
+  background:white;
+  box-shadow:0 0 0 3px rgba(0,0,0,.08);
 }
 
+/* OPTIONS */
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  font-size:14px;
+  color:#6b7280;
+}
+
+/* FIXED checkbox alignment */
+.options label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+}
+
+.options input[type="checkbox"]{
+  width:16px;
+  height:16px;
+  accent-color:black;
+}
+
+.forgot{
+  white-space:nowrap;
+  cursor:pointer;
+  font-weight:500;
+}
+
+/* BUTTON */
 .login-box button{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:15px;
-    background:white;
-    color:black;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:14px;
+  background:black;
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
 }
 
 .login-box button:hover{
-    transform:translateY(-3px);
+  background:#222;
 }
 
-.login-box p{
-    text-align:center;
-    margin-top:20px;
-    color:#d1d5db;
+.register{
+  text-align:center;
+  margin-top:20px;
+  font-size:14px;
+  color:#6b7280;
 }
 
-.login-box span{
-    color:white;
-    font-weight:600;
-    cursor:pointer;
+.register span{
+  color:black;
+  font-weight:600;
+  cursor:pointer;
 }
 
-/* Responsive */
+/* ========================= */
+/* 💻 1020px */
+@media(max-width:1020px){
 
-@media(max-width:900px){
-
-.login-container{
-    flex-direction:column;
-    gap:50px;
-}
-
-.left-content h1{
-    font-size:55px;
-    text-align:center;
-}
-
-.left-content p{
-    text-align:center;
-}
-
-.navbar{
+  .login-container{
+    gap:40px;
     padding:0 20px;
+  }
+
+  .left-content h1{
+    font-size:clamp(45px,6vw,70px);
+  }
+
 }
 
-.navbar ul{
-    gap:15px;
-    font-size:14px;
+/* ========================= */
+/* 📱 768px */
+@media(max-width:768px){
+
+  body{
+    overflow:auto;
+  }
+
+  .login-page{
+    height:auto;
+    padding:40px 0;
+  }
+
+  .login-container{
+    flex-direction:column;
+    text-align:center;
+    gap:40px;
+  }
+
+  .left-content{
+    max-width:100%;
+  }
+
+  .login-box{
+    width:90%;
+  }
+
 }
 
-.login-box{
-    width:100%;
-    max-width:400px;
-}
+/* ========================= */
+/* 📱 500px */
+@media(max-width:500px){
+
+  .left-content h1{
+    font-size:42px;
+  }
+
+  .login-box{
+    padding:25px;
+  }
+
+  .options{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .forgot{
+    align-self:flex-end;
+  }
+
 }
