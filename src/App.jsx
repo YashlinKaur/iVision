@@ -2,13 +2,11 @@ import React from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import Home from "../src/Home"
 import Navbar from './Components/Navbar/Navbar'
-import Hero from './Components/Herosection/Hero'
+import Hero from './Components/Home/Hero'
 import About from './Components/Aboutus/About'
-import Explore from './Components/Explore/Explore'
-import Timeline from "./Components/Timeline/Timeline"
-import Footer from './Components/Footer/Footer'
 import Login from './Components/Login/Login'
-// import MacAccessories from './Components/Accessories/Mac/MacAccessories'
+import MacAccessories from './Components/Accessories/MacAccessories'
+import Register from './Components/Register/Register'
 
 const App = () => {
   return (
@@ -16,14 +14,12 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Hero/>} />
+          <Route path="/" element={<Home />} />
            <Route path="/aboutus" element={<About />} />
            <Route path="/login" element={<Login />} />
-           {/* <Route path='/macaccessories' element={<MacAccessories />} /> */}
+           <Route path="/mac" element={<MacAccessories />} />
+           <Route path="/Register" element={<Register />} />
         </Routes>
-        <Explore />
-        <Timeline />
-        <Footer />
       </BrowserRouter>
     </div>
   )
