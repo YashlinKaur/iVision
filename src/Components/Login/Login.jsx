@@ -8,7 +8,7 @@ const Login = () => {
 
         {/* LEFT */}
         <div className="left-content">
-          <div className="tag">✨ iVision Inspired Experience</div>
+         
 
           <h1>
             Welcome <br /> Back.
