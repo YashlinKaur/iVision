@@ -4,7 +4,6 @@ import Home from "../src/Home"
 import Navbar from './Components/Navbar/Navbar'
 import Hero from './Components/Herosection/Hero'
 import About from './Components/Aboutus/About'
-import Login from "./Components/Login/Login"
 import Explore from './Components/Explore/Explore'
 import Timeline from "./Components/Timeline/Timeline"
 import Footer from './Components/Footer/Footer'
