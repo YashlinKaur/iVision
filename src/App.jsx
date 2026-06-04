@@ -2,12 +2,11 @@ import React from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import ScrollToTop from "./ScrollToTop";
 import Navbar from './Components/Navbar/Navbar'
-import Home from "../src/Home"
-import Hero from './Components/Home/Hero'
+import Home from './Home'
 import About from './Components/Aboutus/About'
-import Login from './Components/Login/Login'
 import MacAccessories from './Components/Accessories/MacAccessories'
 import Storemain from './Components/Store/Storemain/Storemain'
+import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
 
 

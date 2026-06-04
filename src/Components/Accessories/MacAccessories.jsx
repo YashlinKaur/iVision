@@ -10,7 +10,7 @@ import Banner from './Mac/Banner'
 import Display from './Mac/Display'
 import Audio from './Mac/Audio'
 import Protection from './Mac/Protection'
-import WhyIVision from './Mac/WhyIVision'
+import WhyIvision from './Mac/WhyIvision'
 
 function MacAccessories() {
   return (
@@ -26,7 +26,7 @@ function MacAccessories() {
         <Display />
         <Audio />
         <Protection />
-        <WhyIVision />
+        <WhyIvision />
     </div>
   )
 }
