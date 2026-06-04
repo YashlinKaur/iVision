@@ -8,6 +8,7 @@ import Explore from './Components/Explore/Explore'
 import Timeline from "./Components/Timeline/Timeline"
 import Footer from './Components/Footer/Footer'
 import Login from './Components/Login/Login'
+// import MacAccessories from './Components/Accessories/Mac/MacAccessories'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Hero/>} />
            <Route path="/aboutus" element={<About />} />
            <Route path="/login" element={<Login />} />
+           {/* <Route path='/macaccessories' element={<MacAccessories />} /> */}
         </Routes>
         <Explore />
         <Timeline />
