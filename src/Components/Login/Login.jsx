@@ -8,8 +8,7 @@ const Login = () => {
 
         {/* LEFT */}
         <div className="left-content">
-         
-
+        
           <h1>
             Welcome <br /> Back.
           </h1>

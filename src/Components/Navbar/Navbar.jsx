@@ -79,7 +79,6 @@ const Navbar = () => {
       />
       <DropdownMenu
         title="Accessories"
-        link="/accessories"
         items={["Mac", "iPhone", "Watch", "AirPods", "Cases", "Chargers", "Cables", "Power"]}
       />
       <Link to="/aboutus" className="nav-link">About</Link>

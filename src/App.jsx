@@ -8,6 +8,12 @@ import MacAccessories from './Components/Accessories/MacAccessories'
 import Storemain from './Components/Store/Storemain/Storemain'
 import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
+import Keyboards from './Components/Accessories/Mac/Keyboards'
+import Mice from './Components/Accessories/Mac/Mice'
+import Hubs from './Components/Accessories/Mac/Hubs'
+import Display from './Components/Accessories/Mac/Display'
+import Audio from './Components/Accessories/Mac/Audio'
+import Protection from './Components/Accessories/Mac/Protection'
 
 
 const App = () => {
@@ -23,6 +29,12 @@ const App = () => {
            <Route path="/mac" element={<MacAccessories />} />
            <Route path="/Store" element={<Storemain/>} />
            <Route path="/Register" element={<Register />} />
+           <Route path="/keyboards" element={<Keyboards />} />
+           <Route path="/mice" element={<Mice />} />
+           <Route path="/hubs" element={<Hubs />} />
+           <Route path="/display" element={<Display />} />
+           <Route path="/audio" element={<Audio />} />
+           <Route path="/protection" element={<Protection />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -4,9 +4,6 @@ import "./Register.css";
 
 const Register = () => {
   return (
-    <>
-      <Navbar />
-
       <div className="register-page">
         {/* Background Circles */}
         <div className="circle circle-top"></div>
@@ -16,12 +13,12 @@ const Register = () => {
         <div className="left-section">
           
 
-          <h1 className="hero-title">
+          <h1 className="register-hero-title">
             Create <br />
             Account.
           </h1>
 
-          <p className="hero-desc">
+          <p className="register-hero-desc">
             Join iVision today and discover a premium Apple-inspired
             experience designed for innovation and simplicity.
           </p>
@@ -57,7 +54,6 @@ const Register = () => {
           </p>
         </div>
       </div>
-    </>
   );
 };
 
