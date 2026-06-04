@@ -1,0 +1,462 @@
+/* ─── TOKENS ───────────────────────────────────────── */
+:root {
+  --ubt-black:   #0a0a0a;
+  --ubt-white:   #ffffff;
+  --ubt-g50:     #f8f8f8;
+  --ubt-g100:    #efefef;
+  --ubt-g200:    #e0e0e0;
+  --ubt-g400:    #aaaaaa;
+  --ubt-g600:    #555555;
+  --ubt-node-size: 72px;
+  --ubt-spring:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── SECTION ──────────────────────────────────────── */
+.ubt-section {
+  position: relative;
+  background: var(--ubt-white);
+  padding: 7rem 6% 5rem;
+  overflow: hidden;
+}
+
+/* subtle dot-grid background */
+.ubt-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #d8d8d8 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.ubt-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── HEADER ───────────────────────────────────────── */
+.ubt-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.ubt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ubt-g400);
+  margin-bottom: 1.1rem;
+}
+
+.ubt-eyebrow-line {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: var(--ubt-g200);
+}
+
+.ubt-title {
+  font-size: clamp(2rem, 4vw + 0.5rem, 3.4rem);
+  font-weight: 800;
+  color: var(--ubt-black);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.ubt-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ubt-g600);
+}
+
+.ubt-desc {
+  font-size: 0.93rem;
+  color: var(--ubt-g400);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ─── TIMELINE WRAPPER ─────────────────────────────── */
+.ubt-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: row;         /* horizontal on desktop */
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0;                      /* gap handled per-step */
+}
+
+/* ─── CONNECTOR LINE (desktop) ─────────────────────── */
+.ubt-line-track {
+  position: absolute;
+  top: calc(var(--ubt-node-size) / 2);
+  left: calc(var(--ubt-node-size) / 2);
+  right: calc(var(--ubt-node-size) / 2);
+  height: 1px;
+  background: var(--ubt-g200);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ubt-line-fill {
+  height: 100%;
+  background: var(--ubt-black);
+  width: 0%;
+  transition: width 1.4s var(--ubt-spring) 0.3s;
+}
+
+/* trigger line fill when first step is visible */
+.ubt-step.is-visible ~ .ubt-line-fill,
+.ubt-timeline:has(.is-visible) .ubt-line-fill {
+  width: 100%;
+}
+
+/* ─── STEP ─────────────────────────────────────────── */
+.ubt-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 20px;
+
+  /* scroll-in animation */
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.55s var(--ubt-spring) var(--delay),
+    transform 0.55s var(--ubt-spring) var(--delay);
+}
+
+.ubt-step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── NODE ─────────────────────────────────────────── */
+.ubt-node {
+  position: relative;
+  width: var(--ubt-node-size);
+  height: var(--ubt-node-size);
+  flex-shrink: 0;
+}
+
+.ubt-node-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--ubt-g200);
+  transition: border-color 0.35s var(--ubt-spring),
+              transform    0.35s var(--ubt-spring);
+}
+
+.ubt-step.is-active .ubt-node-ring {
+  border-color: var(--ubt-black);
+  transform: scale(1.08);
+}
+
+.ubt-node-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--ubt-white);
+  border: 1px solid var(--ubt-g200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.35s var(--ubt-spring),
+              border-color 0.35s var(--ubt-spring);
+}
+
+.ubt-step.is-active .ubt-node-core {
+  background: var(--ubt-black);
+  border-color: var(--ubt-black);
+}
+
+.ubt-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--ubt-g400);
+  transition: color 0.35s var(--ubt-spring);
+}
+.ubt-icon svg { width: 100%; height: 100%; }
+.ubt-step.is-active .ubt-icon { color: var(--ubt-white); }
+
+/* ─── CARD ─────────────────────────────────────────── */
+.ubt-card {
+  background: var(--ubt-white);
+  border: 1px solid var(--ubt-g100);
+  border-radius: 16px;
+  padding: 1.4rem 1.3rem;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.35s var(--ubt-spring),
+              transform    0.35s var(--ubt-spring),
+              box-shadow   0.35s var(--ubt-spring);
+}
+
+.ubt-step.is-active .ubt-card {
+  border-color: var(--ubt-black);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+}
+
+.ubt-step-id {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ubt-g200);
+  transition: color 0.35s;
+}
+.ubt-step.is-active .ubt-step-id { color: var(--ubt-g400); }
+
+.ubt-step-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ubt-black);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.ubt-step-sub {
+  font-size: 0.72rem;
+  color: var(--ubt-g400);
+  font-weight: 500;
+}
+
+.ubt-step-detail {
+  font-size: 0.7rem;
+  color: var(--ubt-g400);
+  line-height: 1.65;
+  margin-top: 4px;
+}
+
+/* ─── FOOTER STRIP ─────────────────────────────────── */
+.ubt-footer-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  margin-top: 5rem;
+  padding: 1.4rem 2rem;
+  border: 1px solid var(--ubt-g100);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ubt-g600);
+}
+
+.ubt-dot-sep {
+  margin: 0 14px;
+  color: var(--ubt-g200);
+  font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════════ */
+
+/* ── Large Desktop (≤1280px) ── */
+@media (max-width: 1280px) {
+  .ubt-section { padding: 6rem 5% 4.5rem; }
+  .ubt-card { max-width: 180px; padding: 1.2rem 1rem; }
+  .ubt-step-label { font-size: 0.86rem; }
+  .ubt-step-detail { font-size: 0.68rem; }
+}
+
+/* ── Tablet Landscape (≤1024px) ──
+   Still horizontal but tighter */
+@media (max-width: 1024px) {
+  .ubt-section { padding: 5rem 4% 4rem; }
+  .ubt-header { margin-bottom: 4rem; }
+  :root { --ubt-node-size: 62px; }
+
+  .ubt-card {
+    max-width: 160px;
+    padding: 1rem 0.9rem;
+    gap: 5px;
+  }
+
+  .ubt-step { gap: 16px; }
+  .ubt-step-label { font-size: 0.82rem; }
+  .ubt-step-sub { font-size: 0.68rem; }
+  .ubt-step-detail { font-size: 0.65rem; }
+  .ubt-icon { width: 24px; height: 24px; }
+
+  .ubt-footer-strip { margin-top: 4rem; font-size: 0.68rem; }
+  .ubt-dot-sep { margin: 0 10px; }
+}
+
+/* ── Tablet Portrait (≤768px) ──
+   Switch to 2×2 grid layout */
+@media (max-width: 768px) {
+  .ubt-section { padding: 4.5rem 5% 3.5rem; }
+  .ubt-header { margin-bottom: 3rem; }
+
+  /* Switch to 2-column grid */
+  .ubt-timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+    align-items: start;
+  }
+
+  /* Hide horizontal connector line on grid layout */
+  .ubt-line-track { display: none; }
+
+  :root { --ubt-node-size: 64px; }
+
+  .ubt-step {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ubt-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.2rem 1rem;
+    border-radius: 14px;
+  }
+
+  .ubt-step-label { font-size: 0.9rem; }
+  .ubt-step-sub { font-size: 0.72rem; }
+  .ubt-step-detail { font-size: 0.7rem; }
+
+  .ubt-footer-strip {
+    margin-top: 3rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 16px;
+    gap: 8px 0;
+    font-size: 0.67rem;
+  }
+  .ubt-dot-sep { margin: 0 8px; }
+}
+
+/* ── Large Mobile (≤600px) ── */
+@media (max-width: 600px) {
+  .ubt-section { padding: 4rem 5% 3rem; }
+
+  .ubt-timeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 14px;
+  }
+
+  :root { --ubt-node-size: 58px; }
+
+  .ubt-card { padding: 1rem 0.85rem; border-radius: 12px; }
+  .ubt-step-label { font-size: 0.84rem; }
+  .ubt-step-detail { display: none; } /* hide detail on small screens */
+
+  .ubt-footer-strip {
+    border-radius: 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 1.2rem;
+  }
+  .ubt-dot-sep { display: none; }
+}
+
+/* ── Mobile (≤480px) ──
+   Single vertical column */
+@media (max-width: 480px) {
+  .ubt-section { padding: 3.5rem 5% 2.5rem; }
+  .ubt-header { margin-bottom: 2.5rem; }
+
+  /* vertical single column */
+  .ubt-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: relative;
+  }
+
+  /* vertical connector line */
+  .ubt-line-track {
+    display: block;
+    position: absolute;
+    top: calc(var(--ubt-node-size) / 2);
+    bottom: calc(var(--ubt-node-size) / 2);
+    left: calc(var(--ubt-node-size) / 2);
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: var(--ubt-g200);
+    overflow: hidden;
+  }
+
+  .ubt-line-fill {
+    width: 100%;
+    height: 0%;
+    transition: height 1.4s var(--ubt-spring) 0.3s;
+  }
+
+  .ubt-timeline:has(.is-visible) .ubt-line-fill { height: 100%; }
+
+  :root { --ubt-node-size: 56px; }
+
+  /* step becomes horizontal row: node left, card right */
+  .ubt-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 0 28px 0;
+  }
+
+  .ubt-step:last-child { padding-bottom: 0; }
+
+  .ubt-node { flex-shrink: 0; }
+
+  .ubt-card {
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  .ubt-step-detail { display: block; font-size: 0.7rem; }
+  .ubt-step-label { font-size: 0.9rem; }
+
+  .ubt-footer-strip {
+    margin-top: 2.5rem;
+    flex-direction: column;
+    border-radius: 12px;
+    gap: 5px;
+    padding: 1.1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+  }
+  .ubt-dot-sep { display: none; }
+}
+
+/* ── Small Mobile (≤360px) ── */
+@media (max-width: 360px) {
+  .ubt-section { padding: 3rem 4% 2rem; }
+  :root { --ubt-node-size: 50px; }
+
+  .ubt-step { gap: 12px; padding-bottom: 22px; }
+  .ubt-card { padding: 0.85rem 0.9rem; }
+  .ubt-step-label { font-size: 0.84rem; }
+  .ubt-step-sub { font-size: 0.67rem; }
+  .ubt-step-detail { font-size: 0.66rem; }
+  .ubt-icon { width: 22px; height: 22px; }
+}

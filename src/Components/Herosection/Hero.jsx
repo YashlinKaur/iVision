@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import "./Hero.css";
 import ip17 from "../../assets/ip17.png";
 import macbook from "../../assets/macbook.png";
@@ -7,14 +7,7 @@ import ipad from "../../assets/ipad.png";
 const images = [ip17, macbook, ipad];
 
 const Hero = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 2000);
-    return () => clearInterval(timer);
-  }, []);
+  
 
   return (
     <section className="hero-split">
