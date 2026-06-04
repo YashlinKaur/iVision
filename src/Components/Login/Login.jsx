@@ -19,7 +19,7 @@ const Login = () => {
         <div className="left-content">
           <h1>Welcome Back.</h1>
           <p>
-            Sign in to continue your Apple-inspired experience.
+            Sign in to continue your IVision-inspired experience.
           </p>
         </div>
 
