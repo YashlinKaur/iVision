@@ -1,182 +1,102 @@
 import React from "react";
 import "./Mac.css";
 
+const miceProducts = [
+  {
+    id: 1,
+    badge: "",
+    image:
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MK2E3",
+    category: "Mouse",
+    name: "Magic Mouse",
+    desc: "Multi-Touch surface for smooth gestures and scrolling.",
+    price: "₹7,900",
+    sub: "Available in Silver",
+  },
+  {
+    id: 2,
+    badge: "New",
+    image:
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MK2D3",
+    category: "Trackpad",
+    name: "Magic Trackpad",
+    desc: "Large edge-to-edge glass surface with Force Touch.",
+    price: "₹11,900",
+    sub: "Force Touch enabled",
+  },
+  {
+    id: 3,
+    badge: "",
+    image:
+      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MMMQ3",
+    category: "Mouse",
+    name: "Magic Mouse Black",
+    desc: "Premium dark finish designed for modern workspaces.",
+    price: "₹8,900",
+    sub: "Space Black Edition",
+  },
+];
+
 function Mice() {
   return (
-    <div className="section">
-      <div className="section-header">
-        <h2 className="section-title">
-          Mice <em>&amp; Trackpads</em>
-        </h2>
-        <span className="see-all">See all →</span>
+    <section className="keyboard-section">
+      <div className="section-top">
+        <div>
+          <h1>
+            Mice <span>& Trackpads</span>
+          </h1>
+          <p>Precision devices built for Mac.</p>
+        </div>
+
+        <button className="view-btn">
+          View All
+        </button>
       </div>
-      <div className="product-grid">
-        <div className="product-card fade-up visible" data-cat="mouse">
-          <div className="card-img">
-            <div className="card-img-inner">
-              <svg className="product-svg" viewBox="0 0 100 100">
-                <ellipse
-                  cx="50"
-                  cy="55"
-                  rx="28"
-                  ry="38"
-                  fill="#e8e8ed"
-                  stroke="#c7c7cc"
-                  stroke-width="1.5"
-                />
-                <line
-                  x1="50"
-                  y1="28"
-                  x2="50"
-                  y2="78"
-                  stroke="#c7c7cc"
-                  strokeWidth="1"
-                />
-                <ellipse
-                  cx="50"
-                  cy="45"
-                  rx="8"
-                  ry="5"
-                  fill="rgba(0,113,227,0.3)"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="card-body">
-            <p className="card-category">Mouse</p>
-            <h3 className="card-name">Magic Mouse — Silver</h3>
-            <p className="card-desc">
-              Multi-Touch surface with smooth scrolling and gestures.
-            </p>
-            <div className="color-dots">
-              <span
-                className="dot"
-                style={{ background: "#f5f5f7", border: "1.5px solid #c8c8c8" }}
-              ></span>
-              <span className="dot" style={{ background: "#1d1d1f" }}></span>
-              <span className="dot" style={{ background: "#e8d5c0" }}></span>
-            </div>
-            <div className="card-footer">
-              <div>
-                <span className="card-price">₹7,900</span>
-                <span className="card-price-sub">5 colors</span>
-              </div>
-              <button className="btn-add">Add →</button>
-            </div>
-          </div>
-        </div>
 
-        <div className="product-card fade-up visible" data-cat="mouse">
-          <div className="card-img" style={{ background: "#f0f4ff" }}>
-            <span className="card-tag new">New</span>
-            <div className="card-img-inner">
-              <svg className="product-svg" viewBox="0 0 100 70">
-                <rect
-                  x="15"
-                  y="10"
-                  width="70"
-                  height="50"
-                  rx="10"
-                  fill="#e8e8ed"
-                  stroke="#c7c7cc"
-                  strokeWidth="1.5"
-                />
-                <rect
-                  x="25"
-                  y="20"
-                  width="50"
-                  height="30"
-                  rx="6"
-                  fill="#d1d1d6"
-                />
-                <circle cx="50" cy="35" r="8" fill="#c7c7cc" />
-                <rect
-                  x="30"
-                  y="28"
-                  width="12"
-                  height="2"
-                  rx="1"
-                  fill="#86868b"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="card-body">
-            <p className="card-category">Trackpad</p>
-            <h3 className="card-name">Magic Trackpad — Large</h3>
-            <p className="card-desc">
-              Expansive glass surface with Force Touch and haptic feedback.
-            </p>
-            <div className="color-dots">
+      <div className="cards">
+        {miceProducts.map((item) => (
+          <div className="card" key={item.id}>
+            {item.badge && (
               <span
-                className="dot"
-                style={{ background: "#f5f5f7", border: "1.5px solid #c8c8c8" }}
-              ></span>
-              <span className="dot" style={{ background: "#1d1d1f" }}></span>
-            </div>
-            <div className="card-footer">
-              <div>
-                <span className="card-price">₹11,900</span>
-                <span className="card-price-sub">Force Touch enabled</span>
-              </div>
-              <button className="btn-add">Add →</button>
-            </div>
-          </div>
-        </div>
+                className={`badge ${
+                  item.badge === "Sale" ? "sale" : ""
+                }`}
+              >
+                {item.badge}
+              </span>
+            )}
 
-        <div className="product-card fade-up visible" data-cat="mouse">
-          <div className="card-img" style={{ background: "#fff8f0" }}>
-            <div className="card-img-inner">
-              <svg className="product-svg" viewBox="0 0 100 100">
-                <ellipse
-                  cx="50"
-                  cy="55"
-                  rx="28"
-                  ry="38"
-                  fill="#1d1d1f"
-                  stroke="#333"
-                />
-                <line
-                  x1="50"
-                  y1="28"
-                  x2="50"
-                  y2="78"
-                  stroke="#444"
-                  strokeWidth="1"
-                />
-                <ellipse
-                  cx="50"
-                  cy="42"
-                  rx="8"
-                  ry="5"
-                  fill="rgba(0,113,227,0.5)"
-                />
-              </svg>
+            <div className="image-box">
+              <img
+                src={item.image}
+                alt={item.name}
+              />
             </div>
-          </div>
-          <div className="card-body">
-            <p className="card-category">Mouse</p>
-            <h3 className="card-name">Magic Mouse — Space Black</h3>
-            <p className="card-desc">
-              Premium anodized aluminum in a bold midnight finish.
-            </p>
-            <div className="color-dots">
-              <span className="dot" style={{ background: "#1d1d1f" }}></span>
-              <span className="dot" style={{ background: "#2c3d6b" }}></span>
-            </div>
-            <div className="card-footer">
-              <div>
-                <span className="card-price">₹8,900</span>
-                <span className="card-price-sub">2 dark colors</span>
+
+            <div className="content">
+              <span className="product-type">
+                {item.category}
+              </span>
+
+              <h3>{item.name}</h3>
+
+              <p>{item.desc}</p>
+
+              <div className="bottom">
+                <div>
+                  <h4>{item.price}</h4>
+                  <small>{item.sub}</small>
+                </div>
+
+                <button>
+                  +
+                </button>
               </div>
-              <button className="btn-add">Add →</button>
             </div>
           </div>
-        </div>
+        ))}
       </div>
-    </div>
-
-    
+    </section>
   );
 }
 

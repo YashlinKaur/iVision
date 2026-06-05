@@ -1,111 +1,139 @@
 import React from "react";
 import "./Mac.css";
 
+const keyboardProducts = [
+  {
+    id: 1,
+    badge: "New",
+    category: "Keyboard",
+    name: "Magic Keyboard with Touch ID",
+    desc: "Wireless, rechargeable with secure fingerprint login.",
+    price: "₹9,900",
+    sub: "Free delivery",
+    colors: ["#f5f5f7", "#1d1d1f", "#e8d5c0"],
+  },
+  {
+    id: 2,
+    badge: "",
+    category: "Keyboard",
+    name: "Magic Keyboard — Space Gray",
+    desc: "Sleek dark finish with numeric keypad for power users.",
+    price: "₹12,900",
+    sub: "With Numeric Keypad",
+    colors: ["#1d1d1f", "#3a3a3c"],
+  },
+  {
+    id: 3,
+    badge: "Sale",
+    category: "Keyboard",
+    name: "Magic Keyboard — Midnight",
+    desc: "Deep rich color with anodized aluminum for elegant desks.",
+    price: "₹8,499",
+    sub: "Special Offer",
+    colors: ["#2c3d6b", "#1c2951"],
+  },
+];
+
 function Keyboards() {
   return (
-  <div className="section" id="products">
-    <div className="section-header">
-      <h2 className="section-title">Mac <em>Keyboards</em></h2>
-      <span className="see-all">See all →</span>
-    </div>
-    <div className="product-grid">
-    
-      <div className="product-card fade-up visible" data-cat="keyboard">
-        <div className="card-img">
-          <span className="card-tag new">New</span>
-          <div className="card-img-inner">
-            <svg className="product-svg" viewBox="0 0 100 60">
-              <rect x="5" y="10" width="90" height="40" rx="8" fill="#e8e8ed" stroke="#c7c7cc" strokeWidth="1.5"/>
-              <rect x="12" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="26" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="40" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="54" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="68" y="18" width="15" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="12" y="30" width="12" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="28" y="30" width="34" height="7" rx="2" fill="#8e8e93"/>
-              <rect x="66" y="30" width="12" height="7" rx="2" fill="#007aff" opacity="0.8"/>
-            </svg>
-          </div>
+    <section className="keyboard-section">
+      <div className="section-top">
+        <div>
+          <h1>
+            Mac <span>Keyboards</span>
+          </h1>
+          <p>Designed to work seamlessly with Mac.</p>
         </div>
-        <div className="card-body">
-          <p className="card-category">Keyboard</p>
-          <h3 className="card-name">Magic Keyboard with Touch ID</h3>
-          <p className="card-desc">Wireless, rechargeable with secure fingerprint login.</p>
-          <div className="color-dots">
-            <span className="dot" style={{ background: "#f5f5f7", border: "1.5px solid #c8c8c8" }}></span>
-            <span className="dot" style={{ background: "#1d1d1f" }}></span>
-            <span className="dot" style={{ background: "#e8d5c0" }}></span>
-          </div>
-          <div className="card-footer">
-            <div><span className="card-price">₹9,900</span><span className="card-price-sub">Free delivery</span></div>
-            <button className="btn-add">Add →</button>
-          </div>
-        </div>
+
+        <button className="view-btn">View All</button>
       </div>
-    
-      <div className="product-card fade-up visible" data-cat="keyboard">
-        <div className="card-img" style={{ background: "#f5f5f7" }}>
-          <div className="card-img-inner">
-            <svg className="product-svg" viewBox="0 0 100 60">
-              <rect x="5" y="8" width="90" height="42" rx="8" fill="#1d1d1f" stroke="#333" strokeWidth="1.5"/>
-              <rect x="12" y="16" width="10" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="26" y="16" width="10" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="40" y="16" width="10" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="54" y="16" width="10" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="68" y="16" width="15" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="12" y="29" width="10" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="26" y="29" width="40" height="8" rx="2" fill="#2c2c2e"/>
-              <rect x="70" y="29" width="12" height="8" rx="2" fill="#0a84ff" opacity="0.9"/>
-            </svg>
+
+      <div className="cards">
+        {keyboardProducts.map((item) => (
+          <div className="card" key={item.id}>
+            {item.badge && (
+              <span
+                className={`badge ${
+                  item.badge === "Sale" ? "sale" : ""
+                }`}
+              >
+                {item.badge}
+              </span>
+            )}
+
+            <div className="image-box">
+              <svg
+                width="280"
+                height="160"
+                viewBox="0 0 100 60"
+              >
+                <rect
+                  x="5"
+                  y="10"
+                  width="90"
+                  height="40"
+                  rx="8"
+                  fill="#e8e8ed"
+                  stroke="#c7c7cc"
+                  strokeWidth="1.5"
+                />
+
+                <rect x="12" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
+                <rect x="26" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
+                <rect x="40" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
+                <rect x="54" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
+                <rect x="68" y="18" width="15" height="7" rx="2" fill="#8e8e93"/>
+
+                <rect x="12" y="30" width="12" height="7" rx="2" fill="#8e8e93"/>
+                <rect x="28" y="30" width="34" height="7" rx="2" fill="#8e8e93"/>
+                <rect x="66" y="30" width="12" height="7" rx="2" fill="#007aff"/>
+              </svg>
+            </div>
+
+            <div className="content">
+              <span className="product-type">
+                {item.category}
+              </span>
+
+              <h3>{item.name}</h3>
+
+              <p>{item.desc}</p>
+
+              <div
+                style={{
+                  display: "flex",
+                  gap: "8px",
+                  marginBottom: "20px",
+                }}
+              >
+                {item.colors.map((color, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                      borderRadius: "50%",
+                      background: color,
+                      border: "1px solid #d2d2d7",
+                    }}
+                  />
+                ))}
+              </div>
+
+              <div className="bottom">
+                <div>
+                  <h4>{item.price}</h4>
+                  <small>{item.sub}</small>
+                </div>
+
+                <button>+</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="card-body">
-          <p className="card-category">Keyboard</p>
-          <h3 className="card-name">Magic Keyboard — Space Gray</h3>
-          <p className="card-desc">Sleek dark finish with numeric keypad for power users.</p>
-          <div className="color-dots">
-            <span className="dot" style={{ background: "#1d1d1f" }}></span>
-            <span className="dot" style={{ background: "#3a3a3c" }}></span>
-          </div>
-          <div className="card-footer">
-            <div><span className="card-price">₹12,900</span><span className="card-price-sub">With Numeric Keypad</span></div>
-            <button className="btn-add">Add →</button>
-          </div>
-        </div>
+        ))}
       </div>
-    
-      <div className="product-card fade-up visible" data-cat="keyboard">
-        <div className="card-img" style={{ background: "linear-gradient(135deg,#f0f4ff,#e8eeff)" }}>
-          <span className="card-tag sale">Sale</span>
-          <div className="card-img-inner">
-            <svg className="product-svg" viewBox="0 0 100 60">
-              <rect x="5" y="10" width="90" height="40" rx="8" fill="#e0e5ff" stroke="#c5cdff" strokeWidth="1.5"/>
-              <rect x="12" y="18" width="10" height="7" rx="2" fill="#8896cc"/>
-              <rect x="26" y="18" width="10" height="7" rx="2" fill="#8896cc"/>
-              <rect x="40" y="18" width="10" height="7" rx="2" fill="#8896cc"/>
-              <rect x="54" y="18" width="10" height="7" rx="2" fill="#8896cc"/>
-              <rect x="12" y="30" width="62" height="7" rx="2" fill="#8896cc"/>
-            </svg>
-          </div>
-        </div>
-        <div className="card-body">
-          <p className="card-category">Keyboard</p>
-          <h3 className="card-name">Magic Keyboard — Midnight</h3>
-          <p className="card-desc">Deep rich color with anodized aluminum for elegant desks.</p>
-          <div className="color-dots">
-            <span className="dot" style={{ background: "#2c3d6b" }}></span>
-            <span className="dot" style={{ background: "#1c2951" }}></span>
-          </div>
-          <div className="card-footer">
-            <div><span className="card-price">₹8,499 <del style={{ fontSize: "12px", color: "#86868b", fontWeight: "400" }}>₹9,900</del></span></div>
-            <button className="btn-add">Add →</button>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-</div>
-   );
+    </section>
+  );
 }
 
 export default Keyboards;

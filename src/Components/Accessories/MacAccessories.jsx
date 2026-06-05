@@ -14,8 +14,8 @@ function MacAccessories() {
   return (
     <div className="mac-accessories">
         <Hero /> 
-        <Keyboards />  
         <Marquee /> 
+        <Keyboards />  
         <Mice />   
         <Hubs />
         <Banner />

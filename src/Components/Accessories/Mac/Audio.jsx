@@ -2,78 +2,108 @@ import React from "react";
 import "./Mac.css";
 
 function Audio() {
-    return (
-    <div className="section">
 
-    {/* Header */}
-        <div className="section-header">
-          <h2 className="section-title">Audio <em>for Mac</em></h2>
-          <span className="see-all">See all →</span>
+  const audioProducts = [
+  {
+    id: 1,
+    badge: "New",
+    category: "Headphones",
+    name: "AirPods Max — Midnight",
+    desc: "Spatial Audio, ANC, premium metal build, perfect for Mac.",
+    price: "₹59,900",
+    sub: "4 colors",
+    colors: ["#2c3d6b", "#f5f5f7", "#8b6563", "#3d6b3d"],
+  },
+  {
+    id: 2,
+    badge: "",
+    category: "Speakers",
+    name: "HomePod mini Desk Speaker",
+    desc: "360° sound with spatial audio. Perfect Mac companion.",
+    price: "₹10,900",
+    sub: "3 colors",
+    colors: ["#f5f5f7", "#1d1d1f", "#f5c0a8"],
+  },
+];
+
+
+  return (
+    <section className="keyboard-section">
+
+      {/* HEADER (same system everywhere) */}
+      <div className="section-top">
+        <div>
+          <h1>
+            Mac <span>Audio</span>
+          </h1>
+          <p>High-fidelity sound built for Apple ecosystem.</p>
         </div>
 
-    {/* Product Grid */}
-        <div className="product-grid">
+        <button className="view-btn">View All</button>
+      </div>
 
-          <div className="product-card fade-up visible" data-cat="audio">
-            <div className="card-img" style={{ background: "linear-gradient(135deg, #f0f0f5, #e8e8f0)" }}>
-              <span className="card-tag new">New</span>
-              <div className="card-img-inner">
-                <svg className="product-svg" viewBox="0 0 100 100">
-                  <ellipse cx="50" cy="40" rx="30" ry="30" fill="#e8e8ed" stroke="#c7c7cc" strokeWidth="2"/>
-                  <ellipse cx="50" cy="40" rx="20" ry="20" fill="#d1d1d6"/>
-                  <rect x="44" y="68" width="12" height="20" rx="3" fill="#c7c7cc"/>
-                  <rect x="32" y="86" width="36" height="5" rx="2" fill="#c7c7cc"/>
-                </svg>
-              </div>
+      {/* GRID (same reusable structure) */}
+      <div className="cards">
+        {audioProducts.map((item) => (
+          <div className="card" key={item.id}>
+
+            {/* badge */}
+            {item.badge && (
+              <span className="badge">
+                {item.badge}
+              </span>
+            )}
+
+            {/* image placeholder (don’t overdesign per section) */}
+            <div className="image-box">
+              <svg width="280" height="160" viewBox="0 0 100 100">
+                <circle cx="50" cy="40" r="30" fill="#e8e8ed" />
+                <circle cx="50" cy="40" r="18" fill="#d1d1d6" />
+              </svg>
             </div>
-            <div className="card-body">
-              <p className="card-category">Headphones</p>
-              <h3 className="card-name">AirPods Max — Midnight</h3>
-              <p className="card-desc">Spatial Audio, ANC, premium metal build, perfect for Mac.</p>
-              <div className="color-dots">
-                <span className="dot" style={{ background: "#2c3d6b" }}></span>
-                <span className="dot" style={{ background: "#f5f5f7", border: "1.5px solid #c8c8c8" }}></span>
-                <span className="dot" style={{ background: "#8b6563" }}></span>
-                <span className="dot" style={{ background: "#3d6b3d" }}></span>
+
+            {/* content */}
+            <div className="content">
+
+              <span className="product-type">{item.category}</span>
+
+              <h3>{item.name}</h3>
+
+              <p>{item.desc}</p>
+
+              {/* color system (reused logic) */}
+              <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
+                {item.colors.map((c, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                      borderRadius: "50%",
+                      background: c,
+                      border: "1px solid #d2d2d7",
+                    }}
+                  />
+                ))}
               </div>
-              <div className="card-footer">
-                <div><span className="card-price">₹59,900</span><span className="card-price-sub">4 colors</span></div>
-                <button className="btn-add">Add →</button>
+
+              {/* footer */}
+              <div className="bottom">
+                <div>
+                  <h4>{item.price}</h4>
+                  <small>{item.sub}</small>
+                </div>
+
+                <button>+</button>
               </div>
+
             </div>
           </div>
+        ))}
+      </div>
 
-          <div className="product-card fade-up visible" data-cat="audio">
-            <div className="card-img" style={{ background: "#f5f5f7" }}>
-              <div className="card-img-inner">
-                <svg className="product-svg" viewBox="0 0 100 80">
-                  <rect x="20" y="20" width="60" height="40" rx="10" fill="#e8e8ed" stroke="#c7c7cc" strokeWidth="1.5"/>
-                  <circle cx="35" cy="40" r="8" fill="#c7c7cc"/>
-                  <circle cx="65" cy="40" r="8" fill="#c7c7cc"/>
-                  <rect x="33" y="36" width="4" height="8" rx="2" fill="#8e8e93"/>
-                  <rect x="63" y="36" width="4" height="8" rx="2" fill="#8e8e93"/>
-                </svg>
-              </div>
-            </div>
-            <div className="card-body">
-              <p className="card-category">Speakers</p>
-              <h3 className="card-name">HomePod mini Desk Speaker</h3>
-              <p className="card-desc">360° sound with spatial audio. Perfect companion for any Mac desk.</p>
-              <div className="color-dots">
-                <span className="dot" style={{ background: "#f5f5f7", border: "1.5px solid #c8c8c8" }}></span>
-                <span className="dot" style={{ background: "#1d1d1f" }}></span>
-                <span className="dot" style={{ background: "#f5c0a8" }}></span>
-              </div>
-              <div className="card-footer">
-                <div><span className="card-price">₹10,900</span><span className="card-price-sub">3 colors</span></div>
-                <button className="btn-add">Add →</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-    </div>
-    )
+    </section>
+  );
 }
 
 export default Audio;

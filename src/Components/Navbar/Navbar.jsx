@@ -65,33 +65,33 @@ const Navbar = () => {
   return (
     <>
       <header className="navbar">
-  <div className="navbar-container">
-    <Link to="/" className="logo">
-      <img src={logo} alt="logo" />
-    </Link>
+        <div className="navbar-container">
+          <Link to="/" className="logo">
+            <img src={logo} alt="logo" />
+          </Link>
 
-    {/* Use desktop-nav as your wrapper */}
-    <nav className="desktop-nav">
-      <DropdownMenu
-        title="Store"
-        link="/store"
-        items={["Latest", "Mac", "iPhone", "iPad", "Watch", "AirPods", "Home", "Accessories"]}
-      />
-      <DropdownMenu
-        title="Accessories"
-        items={["Mac", "iPhone", "Watch", "AirPods", "Cases", "Chargers", "Cables", "Power"]}
-      />
-      <Link to="/aboutus" className="nav-link">About</Link>
-    </nav>
+          {/* Use desktop-nav as your wrapper */}
+          <nav className="desktop-nav">
+            <DropdownMenu
+              title="Store"
+              link="/store"
+              items={["Latest", "Mac", "iPhone", "iPad", "Watch", "AirPods", "Home", "Accessories"]}
+            />
+            <DropdownMenu
+              title="Accessories"
+              items={["Mac", "iPhone", "Watch", "AirPods", "Cases", "Chargers", "Cables", "Power"]}
+            />
+            <Link to="/aboutus" className="nav-link">About</Link>
+          </nav>
 
-    <div className="auth-buttons">
-      <Link to="/login" className="login-btn">Log in</Link>
-      <Link to="/register" className="register-btn">Register</Link>
-    </div>
-    
-    <button className="mobile-toggle" onClick={() => setMobileMenu(true)}>☰</button>
-  </div>
-</header>
+          <div className="auth-buttons">
+            <Link to="/login" className="login-btn">Log in</Link>
+            <Link to="/register" className="register-btn">Register</Link>
+          </div>
+
+          <button className="mobile-toggle" onClick={() => setMobileMenu(true)}>☰</button>
+        </div>
+    </header>
 
       {/* Overlay */}
       {mobileMenu && (
