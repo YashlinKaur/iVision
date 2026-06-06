@@ -9,7 +9,6 @@
 
 /* ── Tokens ── */
 :root {
-<<<<<<< Updated upstream
   --bg:            #ffffff;
   --surface:       #0e0e0e;
   --surface-2:     #131313;
@@ -27,12 +26,6 @@
   --radius-sm:     10px;
   --font-head:     'Syne', sans-serif;
   --font-body:     'DM Sans', sans-serif;
-=======
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-2: #f8f8f8;
-  --surface-3: #f2f2f2;
->>>>>>> Stashed changes
 
   --border: rgba(0,0,0,0.08);
   --border-h: rgba(0,0,0,0.15);
