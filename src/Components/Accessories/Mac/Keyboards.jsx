@@ -1,37 +1,43 @@
 import React from "react";
 import "./Mac.css";
+import { GoPlus } from "react-icons/go";
+import macKeyboard1 from "../../../assets/MacAccessories/MacKeyboard1.png";
+import macKeyboard2 from "../../../assets/MacAccessories/MacKeyboard2.png";
+// import macKeyboard3 from "../../../assets/MacAccessories/MacKeyboard3.png";
 
 const keyboardProducts = [
   {
     id: 1,
     badge: "New",
+    img: macKeyboard1,
     category: "Keyboard",
-    name: "Magic Keyboard with Touch ID",
-    desc: "Wireless, rechargeable with secure fingerprint login.",
+    name: "Magic Keyboard — White Keys",
+    desc: "Clean, minimal design with smooth, quiet typing for everyday comfort.",
     price: "₹9,900",
     sub: "Free delivery",
-    colors: ["#f5f5f7", "#1d1d1f", "#e8d5c0"],
+    // colors: ["#f5f5f7", "#1d1d1f", "#e8d5c0"],
   },
   {
     id: 2,
     badge: "",
+    img: macKeyboard2,
     category: "Keyboard",
-    name: "Magic Keyboard — Space Gray",
-    desc: "Sleek dark finish with numeric keypad for power users.",
+    name: "Magic Keyboard — Black Keys",
+    desc: "Dark finish with numeric keypad built for fast, efficient workflow.",
     price: "₹12,900",
     sub: "With Numeric Keypad",
-    colors: ["#1d1d1f", "#3a3a3c"],
+    // colors: ["#1d1d1f", "#3a3a3c"],
   },
-  {
-    id: 3,
-    badge: "Sale",
-    category: "Keyboard",
-    name: "Magic Keyboard — Midnight",
-    desc: "Deep rich color with anodized aluminum for elegant desks.",
-    price: "₹8,499",
-    sub: "Special Offer",
-    colors: ["#2c3d6b", "#1c2951"],
-  },
+  // {
+  //   id: 3,
+  //   badge: "Sale",
+  //   category: "Keyboard",
+  //   name: "Magic Keyboard — Midnight",
+  //   desc: "Deep rich color with anodized aluminum for elegant desks.",
+  //   price: "₹8,499",
+  //   sub: "Special Offer",
+  //   // colors: ["#2c3d6b", "#1c2951"],
+  // },
 ];
 
 function Keyboards() {
@@ -62,32 +68,13 @@ function Keyboards() {
             )}
 
             <div className="image-box">
-              <svg
+              <img
                 width="280"
                 height="160"
                 viewBox="0 0 100 60"
-              >
-                <rect
-                  x="5"
-                  y="10"
-                  width="90"
-                  height="40"
-                  rx="8"
-                  fill="#e8e8ed"
-                  stroke="#c7c7cc"
-                  strokeWidth="1.5"
-                />
-
-                <rect x="12" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-                <rect x="26" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-                <rect x="40" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-                <rect x="54" y="18" width="10" height="7" rx="2" fill="#8e8e93"/>
-                <rect x="68" y="18" width="15" height="7" rx="2" fill="#8e8e93"/>
-
-                <rect x="12" y="30" width="12" height="7" rx="2" fill="#8e8e93"/>
-                <rect x="28" y="30" width="34" height="7" rx="2" fill="#8e8e93"/>
-                <rect x="66" y="30" width="12" height="7" rx="2" fill="#007aff"/>
-              </svg>
+                src={item.img}
+                alt={item.name}
+              />
             </div>
 
             <div className="content">
@@ -99,7 +86,7 @@ function Keyboards() {
 
               <p>{item.desc}</p>
 
-              <div
+              {/* <div
                 style={{
                   display: "flex",
                   gap: "8px",
@@ -118,7 +105,7 @@ function Keyboards() {
                     }}
                   />
                 ))}
-              </div>
+              </div> */}
 
               <div className="bottom">
                 <div>
@@ -126,7 +113,9 @@ function Keyboards() {
                   <small>{item.sub}</small>
                 </div>
 
-                <button>+</button>
+                <button>
+                  <GoPlus />
+                </button>
               </div>
             </div>
           </div>

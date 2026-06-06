@@ -1,36 +1,43 @@
 import React from "react";
 import "./Mac.css";
+import MacHub1 from '../../../assets/MacAccessories/MacHub1.png'
+import MacHub2 from '../../../assets/MacAccessories/MacHub2.png'
+// import MacHub3 from '../../../assets/MacAccessories/MacHub3.png'
+
 
 function Hubs() {
 
   const hubProducts = [
-  {
-    id: 1,
-    badge: "Popular",
-    category: "Hub",
-    name: "Thunderbolt 4 Hub — 6-in-1",
-    desc: "USB-C, HDMI 4K, SD Card, ethernet in one compact hub.",
-    price: "₹5,499",
-    sub: "Compatible with all Macs",
-  },
-  {
-    id: 2,
-    badge: "",
-    category: "Dock",
-    name: "CalDigit TS4 Thunderbolt Dock",
-    desc: "18 ports, 98W charging, dual 6K displays supported.",
-    price: "₹29,990",
-    sub: "Pro workflow",
-  },
-  {
-    id: 3,
-    badge: "New",
-    category: "Hub",
-    name: "Space Bar USB-C Hub — Black",
-    desc: "Sits under your Magic Keyboard. Invisible power.",
-    price: "₹8,200",
-    sub: "Desk-friendly design",
-  },
+{
+  id: 1,
+  badge: "Popular",
+  category: "Hub",
+  img : MacHub1,
+  name: "Belkin Connect Thunderbolt 4 Hub",
+  desc: "Expand your Mac with HDMI, USB-C, Ethernet, and more.",
+  price: "₹19,499",
+  sub: "Compatible with all Macs",
+},
+{
+  id: 2,
+  badge: "",
+  category: "Dock",
+  img : MacHub2,
+  name: "CalDigit TS5 Thunderbolt Dock",
+  desc: "Powerful connectivity with 18 ports and fast charging.",
+  price: "₹29,990",
+  sub: "Pro workflow",
+},
+// {
+//   id: 3,
+//   badge: "New",
+//   category: "Hub",
+//   img : MacHub3,
+//   name: "Space Bar USB-C Hub — Black",
+//   desc: "A sleek hub that blends perfectly beneath your keyboard.",
+//   price: "₹8,200",
+//   sub: "Desk-friendly design",
+// },
 ];
 
   return (
@@ -62,17 +69,7 @@ function Hubs() {
 
             {/* image placeholder (match keyboard system) */}
             <div className="image-box">
-              <svg width="280" height="160" viewBox="0 0 100 60">
-                <rect
-                  x="5"
-                  y="10"
-                  width="90"
-                  height="40"
-                  rx="8"
-                  fill="#e8e8ed"
-                  stroke="#c7c7cc"
-                />
-              </svg>
+              <img src={item.img} alt={item.name} />
             </div>
 
             {/* content (same structure) */}

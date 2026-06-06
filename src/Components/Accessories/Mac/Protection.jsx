@@ -1,36 +1,42 @@
 import React from "react";
 import "./Mac.css";
+import MacProtection1 from '../../../assets/MacAccessories/MacProtection1.png'
+import MacProtection2 from '../../../assets/MacAccessories/MacProtection2.png'
+import MacProtection3 from '../../../assets/MacAccessories/MacProtection3.png'
+
 
 function Protection() {
 
   const protectionProducts = [
-  {
-    id: 1,
-    badge: "",
-    category: "Case",
-    name: "MacBook Sleeve — Midnight Blue",
-    desc: "Premium felt with water-resistant lining. Fits 13\" and 14\".",
-    price: "₹3,299",
-    sub: "4 colors",
-  },
-  {
-    id: 2,
-    badge: "New",
-    category: "Skin",
-    name: "MacBook Crystal Clear Hardshell",
-    desc: "Snap-on protection that shows Mac design completely.",
-    price: "₹2,599",
-    sub: "All MacBook models",
-  },
-  {
-    id: 3,
-    badge: "",
-    category: "Bag",
-    name: "Leather MacBook Folio — Tan",
-    desc: "Full-grain leather that ages beautifully. Magnetic closure.",
-    price: "₹6,990",
-    sub: "Genuine leather",
-  },
+ {
+  id: 1,
+  badge: "",
+  category: "Case",
+  img: MacProtection1,
+  name: "MOFT Carry Sleeve for 16” MacBook Pro",
+  desc: "Slim protective sleeve with water-resistant lining and premium finish.",
+  price: "₹5,899",
+},
+{
+  id: 2,
+  badge: "New",
+  category: "Skin",
+  img: MacProtection2,
+  name: "Incase Edge Hardshell Case for 13″ MacBook Air",
+  desc: "Lightweight snap-on case that protects without hiding your Mac.",
+  price: "₹3,599",
+  sub: "All MacBook models",
+},
+{
+  id: 3,
+  badge: "",
+  category: "Bag",
+  img: MacProtection3,
+  name: "Herschel Anchor Sleeve for 15″ and 16″ Mac Laptops",
+  desc: "Durable padded sleeve with a clean design and secure protection.",
+  price: "₹3,990",
+  sub: "Genuine leather",
+},
 ];
 
   return (
@@ -62,17 +68,7 @@ function Protection() {
 
             {/* image placeholder */}
             <div className="image-box">
-              <svg width="280" height="160" viewBox="0 0 100 80">
-                <rect
-                  x="10"
-                  y="10"
-                  width="80"
-                  height="55"
-                  rx="6"
-                  fill="#e8e8ed"
-                  stroke="#c7c7cc"
-                />
-              </svg>
+              <img src={item.img} alt={item.name} />
             </div>
 
             {/* content */}

@@ -79,7 +79,7 @@ const Navbar = () => {
             />
             <DropdownMenu
               title="Accessories"
-              items={["Mac", "iPhone", "Watch", "AirPods", "Cases", "Chargers", "Cables", "Power"]}
+              items={["Mac Accessories", "iPhone Accessories", "Watch Accessories", "AirPods Accessories", "Cases Accessories", "Chargers Accessories", "Cables Accessories", "Power Accessories"]}
             />
             <Link to="/aboutus" className="nav-link">About</Link>
           </nav>

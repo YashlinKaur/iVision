@@ -3,8 +3,21 @@ import "./Mac.css";
 import { Link } from "react-router-dom";
 
 function Hero() {
+
+    const items = [
+    "Magic Keyboard",
+    "Magic Mouse",
+    "Magic Trackpad",
+    "Thunderbolt Hub",
+    "Studio Display",
+    "AirPods Pro",
+    "MagSafe Charger",
+  ];
+
   return (
   <section>
+
+    {/* Banner  */}
     <div className="hero">
       <div className="hero-content">
         <p className="hero-eyebrow">MAC ACCESSORIES</p>
@@ -28,6 +41,7 @@ function Hero() {
       </div>
     </div>
 
+    {/* Filter Bar  */}
     <div className="filter-bar">
       <div className="filter-inner">
         <span className="filter-label">Filter:</span>
@@ -52,6 +66,18 @@ function Hero() {
         <Link to="/protection" className="filter-chip" onClick={() => filterProducts('protection', this)}>
           Protection
         </Link>
+      </div>
+    </div>
+
+    {/* Marquee  */}
+    <div className="marquee-wrap">
+      <div className="marquee">
+        {[...items, ...items].map((item, index) => (
+          <React.Fragment key={index}>
+            <span className="marquee-item">{item}</span>
+            <span className="marquee-item">·</span>
+          </React.Fragment>
+        ))}
       </div>
     </div>
   </section>

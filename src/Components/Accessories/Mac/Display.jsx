@@ -1,29 +1,32 @@
 import React from "react";
 import "./Mac.css";
+import MacDisplay1 from '../../../assets/MacAccessories/MacDisplay1.png'
+import MacDisplay2 from '../../../assets/MacAccessories/MacDisplay2.png'
 
 function Display() {
 
   const displayProducts = [
-  {
-    id: 1,
-    badge: "New",
-    category: "Display",
-    name: "Apple Studio Display",
-    desc: "27-inch 5K Retina, 600 nits brightness, built-in webcam and speakers.",
-    price: "₹1,59,900",
-    sub: "5K Retina · True Tone",
-  },
-  {
-    id: 2,
-    badge: "",
-    category: "Display",
-    name: "LG UltraFine 4K Display",
-    desc: "24-inch 4K, USB-C one-cable solution, designed for Mac.",
-    price: "₹54,900",
-    sub: "4K · USB-C",
-  },
+{
+  id: 1,
+  badge: "Premium",
+  category: "Display",
+  img: MacDisplay1,
+  name: "Apple Studio Display",
+  desc: "27-inch 5K Retina display with Nano-Texture Glass, True Tone technology, and adjustable stand for a premium Mac experience.",
+  price: "₹2,79,900",
+  sub: "5K Retina · Nano-Texture",
+},
+{
+  id: 2,
+  badge: "Best Seller",
+  category: "Display",
+  img: MacDisplay2,
+  name: "LG UltraFine 4K Monitor",
+  desc: "27-inch 4K UHD IPS display with HDR10, 60Hz refresh rate, anti-glare coating, and vibrant color accuracy.",
+  price: "₹19,999",
+  sub: "4K UHD · HDR10",
+},
 ];
-
 
   return (
     <section className="keyboard-section">
@@ -54,17 +57,7 @@ function Display() {
 
             {/* image placeholder (STOP custom SVG per section) */}
             <div className="image-box">
-              <svg width="280" height="160" viewBox="0 0 100 80">
-                <rect
-                  x="8"
-                  y="8"
-                  width="84"
-                  height="52"
-                  rx="5"
-                  fill="#e8e8ed"
-                  stroke="#c7c7cc"
-                />
-              </svg>
+              <img src={item.img} alt={item.name} />
             </div>
 
             {/* content */}

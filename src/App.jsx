@@ -4,11 +4,13 @@ import ScrollToTop from "./ScrollToTop";
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Home'
 import About from './Components/Aboutus/About'
-import MacAccessories from './Components/Accessories/MacAccessories'
-import Storemain from './Components/Store/Storemain/Storemain'
-import Latest from './Components/Store/Latest'
 import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
+
+import Storemain from './Components/Store/Storemain/Storemain'
+import Latest from './Components/Store/Latest'
+
+import MacAccessories from './Components/Accessories/MacAccessories'
 import Keyboards from './Components/Accessories/Mac/Keyboards'
 import Mice from './Components/Accessories/Mac/Mice'
 import Hubs from './Components/Accessories/Mac/Hubs'
@@ -29,9 +31,12 @@ const App = () => {
            <Route path="/login" element={<Login />} />
            <Route path="/Register" element={<Register />} />
 
+            {/* Store  */}
            <Route path="/Store" element={<Storemain/>} />
            <Route path="/Latest" element={<Latest />} />
-           <Route path="/mac" element={<MacAccessories />} />
+
+           {/* Accessories  */}
+           <Route path="/macaccessories" element={<MacAccessories />} />
            <Route path="/keyboards" element={<Keyboards />} />
            <Route path="/mice" element={<Mice />} />
            <Route path="/hubs" element={<Hubs />} />

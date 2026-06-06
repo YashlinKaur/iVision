@@ -1,5 +1,7 @@
 import React from "react";
 import "./Mac.css";
+import MacAudio1 from '../../../assets/MacAccessories/MacAudio1.png'
+import MacAudio2 from '../../../assets/MacAccessories/MacAudio2.png'
 
 function Audio() {
 
@@ -8,21 +10,23 @@ function Audio() {
     id: 1,
     badge: "New",
     category: "Headphones",
-    name: "AirPods Max — Midnight",
-    desc: "Spatial Audio, ANC, premium metal build, perfect for Mac.",
-    price: "₹59,900",
-    sub: "4 colors",
-    colors: ["#2c3d6b", "#f5f5f7", "#8b6563", "#3d6b3d"],
+    img : MacAudio1,
+    name: "AirPods Max 2 — Midnight",
+    desc: "High-fidelity audio with Active Noise Cancellation and Spatial Audio.",
+    price: "₹66,900",
+    // sub: "4 colors",
+    // colors: ["#2c3d6b", "#f5f5f7", "#8b6563", "#3d6b3d"],
   },
   {
     id: 2,
     badge: "",
     category: "Speakers",
-    name: "HomePod mini Desk Speaker",
-    desc: "360° sound with spatial audio. Perfect Mac companion.",
-    price: "₹10,900",
-    sub: "3 colors",
-    colors: ["#f5f5f7", "#1d1d1f", "#f5c0a8"],
+    img : MacAudio2,
+    name: "HomePod mini — Midnight",
+    desc: "Room-filling sound with intelligent audio and seamless Apple integration.",
+    price: "₹9,900",
+    // sub: "3 colors",
+    // colors: ["#f5f5f7", "#1d1d1f", "#f5c0a8"],
   },
 ];
 
@@ -56,10 +60,7 @@ function Audio() {
 
             {/* image placeholder (don’t overdesign per section) */}
             <div className="image-box">
-              <svg width="280" height="160" viewBox="0 0 100 100">
-                <circle cx="50" cy="40" r="30" fill="#e8e8ed" />
-                <circle cx="50" cy="40" r="18" fill="#d1d1d6" />
-              </svg>
+              <img src={item.img} alt={item.name} />
             </div>
 
             {/* content */}
@@ -72,7 +73,7 @@ function Audio() {
               <p>{item.desc}</p>
 
               {/* color system (reused logic) */}
-              <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
+              {/* <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
                 {item.colors.map((c, i) => (
                   <span
                     key={i}
@@ -85,13 +86,13 @@ function Audio() {
                     }}
                   />
                 ))}
-              </div>
+              </div> */}
 
               {/* footer */}
               <div className="bottom">
                 <div>
                   <h4>{item.price}</h4>
-                  <small>{item.sub}</small>
+                  {/* <small>{item.sub}</small> */}
                 </div>
 
                 <button>+</button>

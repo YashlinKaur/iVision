@@ -1,40 +1,40 @@
 import React from "react";
 import "./Mac.css";
+import MacMice1 from '../../../assets/MacAccessories/MacMice1.png'
+import MacMice2 from '../../../assets/MacAccessories/MacMice2.png'
+import MacMice3 from '../../../assets/MacAccessories/MacMice3.png'
 
 const miceProducts = [
-  {
-    id: 1,
-    badge: "",
-    image:
-      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MK2E3",
-    category: "Mouse",
-    name: "Magic Mouse",
-    desc: "Multi-Touch surface for smooth gestures and scrolling.",
-    price: "₹7,900",
-    sub: "Available in Silver",
-  },
-  {
-    id: 2,
-    badge: "New",
-    image:
-      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MK2D3",
-    category: "Trackpad",
-    name: "Magic Trackpad",
-    desc: "Large edge-to-edge glass surface with Force Touch.",
-    price: "₹11,900",
-    sub: "Force Touch enabled",
-  },
-  {
-    id: 3,
-    badge: "",
-    image:
-      "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MMMQ3",
-    category: "Mouse",
-    name: "Magic Mouse Black",
-    desc: "Premium dark finish designed for modern workspaces.",
-    price: "₹8,900",
-    sub: "Space Black Edition",
-  },
+{
+  id: 1,
+  badge: "",
+  image: MacMice1,
+  category: "Mouse",
+  name: "Magic Mouse - Black",
+  desc: "Multi-Touch surface for smooth and precise navigation.",
+  price: "₹7,900",
+  sub: "Available in Silver",
+},
+{
+  id: 2,
+  badge: "New",
+  image: MacMice2,
+  category: "Trackpad",
+  name: "Magic Trackpad",
+  desc: "Expansive glass surface with intuitive gestures and Force Touch.",
+  price: "₹11,900",
+  sub: "Force Touch enabled",
+},
+{
+  id: 3,
+  badge: "",
+  image: MacMice3,
+  category: "Mouse",
+  name: "Magic Mouse - White",
+  desc: "Elegant design with seamless Multi-Touch gestures.",
+  price: "₹8,900",
+  sub: "Available in Black",
+},
 ];
 
 function Mice() {
