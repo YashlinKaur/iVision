@@ -33,15 +33,12 @@ const App = () => {
           <Route path="/" element={<Home />} />
            <Route path="/aboutus" element={<About />} />
            <Route path="/login" element={<Login />} />
-<<<<<<< Updated upstream
-=======
            <Route path="/mac" element={<MacAccessories />} />
            <Route path="/Store" element={<Storemain/>} />
            <Route path="/Latest" element={<Latest/>} />
            <Route path="/Iphone" element={<Iphone/>} />
            <Route path="/Airpods" element={<Airpods/>} />
            <Route path="/Macbook" element={<Macbook/>} />
->>>>>>> Stashed changes
            <Route path="/Register" element={<Register />} />
 
             {/* Store  */}
