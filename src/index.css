@@ -4,3 +4,7 @@
 /* *{
     border : 2px solid red;
 } */
+
+html, body, #root {
+  background-color: #ffffff !important;
+}

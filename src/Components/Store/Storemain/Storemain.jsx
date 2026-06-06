@@ -228,7 +228,7 @@ export default function StoreSection() {
         {/* ── Footer ── */}
         <footer className="store-footer">
           <div className="footer-perks">
-            {['Free Express Shipping', '2-Year Warranty', '30-Day Returns', 'Trade-In Available'].map((perk) => (
+            {['© 2026 iVisionStore. · Demo project only.', 'Privacy Policy', '· Terms of Use', 'Shipping Policy' , '·Sitemap'].map((perk) => (
               <div key={perk} className="perk-item">
                 <span className="perk-dot" />
                 {perk}

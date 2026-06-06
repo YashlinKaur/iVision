@@ -17,6 +17,10 @@ import Hubs from './Components/Accessories/Mac/Hubs'
 import Display from './Components/Accessories/Mac/Display'
 import Audio from './Components/Accessories/Mac/Audio'
 import Protection from './Components/Accessories/Mac/Protection'
+import Latest from "./Components/Store/Latest"
+import Iphone from "./Components/Store/Iphone"
+import Airpods from './Components/Store/Airpods';
+import Macbook from './Components/Store/Macbook';
 
 
 const App = () => {
@@ -29,6 +33,15 @@ const App = () => {
           <Route path="/" element={<Home />} />
            <Route path="/aboutus" element={<About />} />
            <Route path="/login" element={<Login />} />
+<<<<<<< Updated upstream
+=======
+           <Route path="/mac" element={<MacAccessories />} />
+           <Route path="/Store" element={<Storemain/>} />
+           <Route path="/Latest" element={<Latest/>} />
+           <Route path="/Iphone" element={<Iphone/>} />
+           <Route path="/Airpods" element={<Airpods/>} />
+           <Route path="/Macbook" element={<Macbook/>} />
+>>>>>>> Stashed changes
            <Route path="/Register" element={<Register />} />
 
             {/* Store  */}

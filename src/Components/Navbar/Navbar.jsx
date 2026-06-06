@@ -75,7 +75,7 @@ const Navbar = () => {
             <DropdownMenu
               title="Store"
               link="/store"
-              items={["Latest", "Mac", "iPhone", "iPad", "Watch", "AirPods", "Home", "Accessories"]}
+              items={["Latest", "MacBook", "iPhone","AirPods"]}
             />
             <DropdownMenu
               title="Accessories"
