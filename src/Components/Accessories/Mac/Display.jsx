@@ -1,5 +1,4 @@
 import React from "react";
-import "./Mac.css";
 import MacDisplay1 from '../../../assets/MacAccessories/MacDisplay1.png'
 import MacDisplay2 from '../../../assets/MacAccessories/MacDisplay2.png'
 
@@ -76,7 +75,7 @@ function Display() {
                   <small>{item.sub}</small>
                 </div>
 
-                <button>+</button>
+                <button>Add to cart</button>
               </div>
 
             </div>

@@ -1,18 +1,17 @@
 import React from "react";
-import "./Mac.css";
 import { Link } from "react-router-dom";
 
 function Hero() {
 
-    const items = [
-    "Magic Keyboard",
-    "Magic Mouse",
-    "Magic Trackpad",
-    "Thunderbolt Hub",
-    "Studio Display",
-    "AirPods Pro",
-    "MagSafe Charger",
-  ];
+  //   const items = [
+  //   "Magic Keyboard",
+  //   "Magic Mouse",
+  //   "Magic Trackpad",
+  //   "Thunderbolt Hub",
+  //   "Studio Display",
+  //   "AirPods Pro",
+  //   "MagSafe Charger",
+  // ];
 
   return (
   <section>
@@ -70,7 +69,7 @@ function Hero() {
     </div>
 
     {/* Marquee  */}
-    <div className="marquee-wrap">
+    {/* <div className="marquee-wrap">
       <div className="marquee">
         {[...items, ...items].map((item, index) => (
           <React.Fragment key={index}>
@@ -79,7 +78,7 @@ function Hero() {
           </React.Fragment>
         ))}
       </div>
-    </div>
+    </div> */}
   </section>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Mac.css";
 import MacMice1 from '../../../assets/MacAccessories/MacMice1.png'
 import MacMice2 from '../../../assets/MacAccessories/MacMice2.png'
 import MacMice3 from '../../../assets/MacAccessories/MacMice3.png'
@@ -88,9 +87,7 @@ function Mice() {
                   <small>{item.sub}</small>
                 </div>
 
-                <button>
-                  +
-                </button>
+                <button>Add to cart</button>
               </div>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Mac.css";
 import { GoPlus } from "react-icons/go";
 import macKeyboard1 from "../../../assets/MacAccessories/MacKeyboard1.png";
 import macKeyboard2 from "../../../assets/MacAccessories/MacKeyboard2.png";
@@ -113,9 +112,7 @@ function Keyboards() {
                   <small>{item.sub}</small>
                 </div>
 
-                <button>
-                  <GoPlus />
-                </button>
+                <button>Add to cart</button>
               </div>
             </div>
           </div>

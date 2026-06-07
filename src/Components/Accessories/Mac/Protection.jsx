@@ -1,5 +1,4 @@
 import React from "react";
-import "./Mac.css";
 import MacProtection1 from '../../../assets/MacAccessories/MacProtection1.png'
 import MacProtection2 from '../../../assets/MacAccessories/MacProtection2.png'
 import MacProtection3 from '../../../assets/MacAccessories/MacProtection3.png'
@@ -87,7 +86,7 @@ function Protection() {
                   <small>{item.sub}</small>
                 </div>
 
-                <button>+</button>
+                <button>Add to cart</button>
               </div>
 
             </div>

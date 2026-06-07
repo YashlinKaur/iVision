@@ -1,5 +1,4 @@
 import React from "react";
-import "./Mac.css";
 import MacHub1 from '../../../assets/MacAccessories/MacHub1.png'
 import MacHub2 from '../../../assets/MacAccessories/MacHub2.png'
 // import MacHub3 from '../../../assets/MacAccessories/MacHub3.png'
@@ -87,7 +86,7 @@ function Hubs() {
                   <small>{item.sub}</small>
                 </div>
 
-                <button>+</button>
+                <button>Add to cart</button>
               </div>
             </div>
 

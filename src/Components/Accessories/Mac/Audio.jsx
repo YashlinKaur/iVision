@@ -1,5 +1,4 @@
 import React from "react";
-import "./Mac.css";
 import MacAudio1 from '../../../assets/MacAccessories/MacAudio1.png'
 import MacAudio2 from '../../../assets/MacAccessories/MacAudio2.png'
 
@@ -95,7 +94,7 @@ function Audio() {
                   {/* <small>{item.sub}</small> */}
                 </div>
 
-                <button>+</button>
+                <button>Add to cart</button>
               </div>
 
             </div>
