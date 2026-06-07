@@ -6,10 +6,7 @@ import Home from './Home'
 import About from './Components/Aboutus/About'
 import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
-
 import Storemain from './Components/Store/Storemain/Storemain'
-import Latest from './Components/Store/Latest'
-
 import MacAccessories from './Components/Accessories/MacAccessories'
 import Keyboards from './Components/Accessories/Mac/Keyboards'
 import Mice from './Components/Accessories/Mac/Mice'
@@ -17,10 +14,14 @@ import Hubs from './Components/Accessories/Mac/Hubs'
 import Display from './Components/Accessories/Mac/Display'
 import Audio from './Components/Accessories/Mac/Audio'
 import Protection from './Components/Accessories/Mac/Protection'
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import Iphone from "./Components/Store/Iphone"
 import Airpods from './Components/Store/Airpods';
 import Macbook from './Components/Store/Macbook';
+import Watch from './Components/Store/Watch';
 
 import IPhoneAccessories from './Components/Accessories/IPhoneAccessories'
 import WatchAccessories from './Components/Accessories/WatchAccessories'
@@ -39,7 +40,7 @@ const App = () => {
            <Route path="/login" element={<Login />} />
            <Route path="/mac" element={<MacAccessories />} />
            <Route path="/Store" element={<Storemain/>} />
-           <Route path="/Latest" element={<Latest/>} />
+           <Route path="/Watch" element={<Watch/>} />
            <Route path="/Iphone" element={<Iphone/>} />
            <Route path="/Airpods" element={<Airpods/>} />
            <Route path="/Macbook" element={<Macbook/>} />
@@ -47,7 +48,6 @@ const App = () => {
 
             {/* Store  */}
            <Route path="/Store" element={<Storemain/>} />
-           <Route path="/Latest" element={<Latest />} />
 
            {/* Accessories  */}
            <Route path="/macaccessories" element={<MacAccessories />} />

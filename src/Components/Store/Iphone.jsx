@@ -1,295 +1,307 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Store.css";
 
-const iphones = [
+const PRODUCTS = [
+ {
+  id: 1,
+  category: "Pro Series",
+  name: "iPhone 17 Pro Max",
+  price: "₹1,34,900",
+  badge: "New",
+  desc: "Titanium design, advanced AI features, and Apple's most powerful camera system yet.",
+  image: "https://i.pinimg.com/originals/74/ed/6a/74ed6a5afdaeac95371d6de24afcb716.png",
+  tags: ["A19 Pro", "6.9″ Display", "8K Video", "Pro Camera"],
+  colors: ["#c2b49a", "#2e2b28", "#e8e0d5", "#4a4e4d"],
+},
+
+{
+  id: 2,
+  category: "Essential",
+  name: "iPhone 17e",
+  price: "₹79,900",
+  badge: "New",
+  desc: "Modern iPhone essentials with fast performance and all-day battery life.",
+  image: "https://i.pinimg.com/736x/59/f8/aa/59f8aaf221ed2404bddb14b61d47bed3.jpg",
+  tags: ["A18 Chip", "Face ID", "USB-C", "5G"],
+  colors: ["#3a7d7e", "#e8c9b2", "#2d2d2d", "#d4e0d4"],
+},
+
+{
+  id: 3,
+  category: "Everyday Choice",
+  name: "iPhone 17",
+  price: "₹59,900",
+  badge: "Sale",
+  desc: "The perfect balance of performance, camera quality, and everyday usability.",
+  image: "https://i.pinimg.com/736x/5e/fa/b6/5efab697bccfddab13ec2d4d262b02ec.jpg",
+  tags: ["A18 Chip", "Dynamic Island", "48MP Camera", "USB-C"],
+  colors: ["#e5c94a", "#f2c0a7", "#aacabf", "#2a2a2a"],
+},
+
+{
+  id: 4,
+  category: "Pro Series",
+  name: "iPhone 16 Pro Max",
+  price: "₹1,19,900",
+  badge: null,
+  desc: "Pro-grade photography, titanium build, and stunning ProMotion display.",
+  image: "https://i.pinimg.com/736x/9d/08/51/9d0851a1422117b18ddb1f925f75df8d.jpg",
+  tags: ["A18 Pro", "120Hz ProMotion", "5× Zoom", "Titanium"],
+  colors: ["#2e2b28", "#c2b49a", "#e8e0d5"],
+},
+
+{
+  id: 5,
+  category: "Large Screen",
+  name: "iPhone 16 Plus",
+  price: "₹89,900",
+  badge: null,
+  desc: "A massive display and incredible battery life built for entertainment.",
+  image: "https://i.pinimg.com/736x/58/06/ff/5806ff82cfd27a05ebbf3d3e493f162f.jpg",
+  tags: ["6.7″ OLED", "Long Battery", "48MP Camera", "Dynamic Island"],
+  colors: ["#e8c0c7", "#3a7d7e", "#1a1a1a", "#eae6df"],
+},
+
+{
+  id: 6,
+  category: "Everyday Choice",
+  name: "iPhone 16",
+  price: "₹49,900",
+  badge: "Best Value",
+  desc: "Fast, reliable, and packed with the features most people need every day.",
+  image: "https://i.pinimg.com/1200x/8c/cb/4d/8ccb4d9eb1f8f664326b2813bf607797.jpg",
+  tags: ["A18 Chip", "48MP Camera", "USB-C", "5G"],
+  colors: ["#e8e3d8", "#394a58", "#692929", "#1a1a1a"],
+},
   {
-    id: 1,
-    model: "iPhone 17 Pro Max",
-    category: "Latest Release",
-    year: 2025,
-    colors: ["#2C2C2E", "#E8D5B7"],
-    colorNames: ["Black Titanium", "Desert Titanium"],
-    description: "The most powerful iPhone ever. Titanium design with A19 Pro chip and next-gen camera system.",
-    features: ["A19 Pro Chip", "6.9\" ProMotion", "5× Optical Zoom", "48MP Fusion"],
-    price: "₹1,79,900",
-    badge: "New",
-    badgeColor: "#0071e3",
-  },
-  {
-    id: 2,
-    model: "iPhone 17 Pro",
-    category: "Latest Release",
-    year: 2025,
-    colors: ["#4A4A4C", "#B0C4B1"],
-    colorNames: ["Black Titanium", "Natural Titanium"],
-    description: "Pro-level performance in a refined titanium frame. All-new camera system with Ultra Wide.",
-    features: ["A19 Pro Chip", "6.3\" ProMotion", "4× Optical Zoom", "ProRes Video"],
-    price: "₹1,59,900",
-    badge: "New",
-    badgeColor: "#0071e3",
-  },
-  {
-    id: 3,
-    model: "iPhone 16 Pro Max",
-    category: "Pro Series",
-    year: 2024,
-    colors: ["#3A3A3C", "#F5F0E8"],
-    colorNames:["Black Titanium", "White Titanium"],
-    description: "A18 Pro chip with Apple Intelligence. The biggest Pro Max display ever at 6.9 inches.",
-    features: ["A18 Pro Chip", "6.9\" Super Retina", "5× Optical Zoom", "Camera Control"],
-    price: "₹1,59,900",
-    badge: "Popular",
-    badgeColor: "#1d1d1f",
-  },
-  {
-    id: 4,
-    model: "iPhone 16 Pro",
-    category: "Pro Series",
-    year: 2024,
-    colors: ["#1C1C1E", "#D4C5A9"],
-    colorNames: ["Black Titanium", "Desert Titanium"],
-    description: "Camera Control, A18 Pro, and Apple Intelligence. Pro photography in a compact design.",
-    features: ["A18 Pro Chip", "6.3\" Super Retina", "4× Optical Zoom", "Camera Control"],
-    price: "₹1,39,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 5,
-    model: "iPhone 15 Pro Max",
-    category: "Pro Series",
-    year: 2023,
-    colors: ["#2C2C2E", "#E8E0D5"],
-    colorNames: ["Black Titanium", "Natural Titanium"],
-    description: "Titanium design with A17 Pro chip. Action button and 5× telephoto camera.",
-    features: ["A17 Pro Chip", "6.7\" ProMotion", "5× Optical Zoom", "Action Button"],
-    price: "₹1,34,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 6,
-    model: "iPhone 15 Pro",
-    category: "Pro Series",
-    year: 2023,
-    colors: ["#4A4A4C", "#C8B8A2"],
-    colorNames: ["Black Titanium", "White Titanium"],
-    description: "The first iPhone with titanium. A17 Pro chip and Action button built for creators.",
-    features: ["A17 Pro Chip", "6.1\" ProMotion", "3× Optical Zoom", "Action Button"],
-    price: "₹1,19,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 7,
-    model: "iPhone 14 Pro Max",
-    category: "Classic Pro",
-    year: 2022,
-    colors: ["#1C1C1E", "#F5F5F0"],
-    colorNames: ["Space Black", "Silver"],
-    description: "Dynamic Island, Always-On display and 48MP camera. The pro revolution begins.",
-    features: ["A16 Bionic", "6.7\" Always-On", "48MP Camera", "Dynamic Island"],
-    price: "₹99,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 8,
-    model: "iPhone 13 Pro Max",
-    category: "Classic Pro",
-    year: 2021,
-    colors: ["#1C1C1E", "#E8E8E8"],
-    colorNames: ["Graphite", "Silver"],
-    description: "A15 Bionic, ProMotion display and macro photography. The original Pro Max legend.",
-    features: ["A15 Bionic", "6.7\" ProMotion", "Macro Camera", "Cinematic Mode"],
-    price: "₹79,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 8,
-    model: "iPhone 14 Pro",
-    category: "Classic Pro",
-    year: 2021,
-    colors: ["#1C1C1E", "#E8E8E8"],
-    colorNames: ["Graphite", "Silver"],
-    description: "A15 Bionic, ProMotion display and macro photography. The original Pro Max legend.",
-    features: ["A15 Bionic", "6.7\" ProMotion", "Macro Camera", "Cinematic Mode"],
-    price: "₹79,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 8,
-    model: "iPhone 14 Pro",
-    category: "Classic Pro",
-    year: 2021,
-    colors: ["#1C1C1E", "#E8E8E8"],
-    colorNames: ["Graphite", "Silver"],
-    description: "A15 Bionic, ProMotion display and macro photography. The original Pro Max legend.",
-    features: ["A15 Bionic", "6.7\" ProMotion", "Macro Camera", "Cinematic Mode"],
-    price: "₹79,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 8,
-    model: "iPhone 13 Pro Max",
-    category: "Classic Pro",
-    year: 2021,
-    colors: ["#1C1C1E", "#E8E8E8"],
-    colorNames: ["Graphite", "Silver"],
-    description: "A15 Bionic, ProMotion display and macro photography. The original Pro Max legend.",
-    features: ["A15 Bionic", "6.7\" ProMotion", "Macro Camera", "Cinematic Mode"],
-    price: "₹79,900",
-    badge: null,
-    badgeColor: null,
-  },
-  {
-    id: 8,
-    model: "iPhone 13 Pro M",
-    category: "Classic Pro",
-    year: 2021,
-    colors: ["#1C1C1E", "#E8E8E8"],
-    colorNames: ["Graphite", "Silver"],
-    description: "A15 Bionic, ProMotion display and macro photography. The original Pro Max legend.",
-    features: ["A15 Bionic", "6.7\" ProMotion", "Macro Camera", "Cinematic Mode"],
-    price: "₹79,900",
-    badge: null,
-    badgeColor: null,
-  },
+  id: 7,
+  category: "Pro Series",
+  name: "iPhone 15 Pro Max",
+  price: "₹89,900",
+  desc: "Titanium design with powerful A17 Pro performance and advanced zoom photography.",
+  image: "https://i.pinimg.com/736x/53/c3/71/53c371651b8c8a2f2b9414e2416a9f48.jpg",
+  tags: ["A17 Pro", "Titanium", "5× Telephoto", "USB-C"],
+  colors: ["#c4b9a7", "#3f3f41", "#f4f2ed", "#4f4f51"],
+},
+
+{
+  id: 8,
+  category: "Large Screen",
+  name: "iPhone 15 Plus",
+  price: "₹69,900",
+  desc: "Big display, exceptional battery life, and a stunning 48MP camera.",
+  image: "https://i.pinimg.com/736x/2b/4e/2d/2b4e2d1821f4b3f50dcf94430bbc3c0d.jpg",
+  tags: ["A16 Bionic", "48MP Camera", "Dynamic Island"],
+  colors: ["#f6d9d7", "#d7e5a3", "#a7c7e7", "#1f1f1f"],
+},
+
+{
+  id: 9,
+  category: "Everyday Choice",
+  name: "iPhone 15",
+  price: "₹59,900",
+  desc: "Powerful everyday performance with Dynamic Island and USB-C connectivity.",
+  image: "https://i.pinimg.com/736x/24/57/77/2457778e56d891f4b0cc73d498ae647a.jpg",
+  tags: ["A16 Bionic", "Dynamic Island", "USB-C"],
+  colors: ["#f6d9d7", "#d7e5a3", "#a7c7e7", "#1f1f1f"],
+},
+
+{
+  id: 10,
+  category: "Pro Series",
+  name: "iPhone 14 Pro Max",
+  price: "₹74,900",
+  desc: "Always-On Display, Dynamic Island, and Apple's first 48MP Pro camera.",
+  image: "https://i.pinimg.com/736x/77/39/83/773983dd12472a8e321cdbf74e952528.jpg",
+  tags: ["A16 Bionic", "48MP Camera", "Always-On"],
+  colors: ["#5c4d7d", "#d5c7b0", "#3a3a3c", "#e8e5de"],
+},
+
+{
+  id: 11,
+  category: "Large Screen",
+  name: "iPhone 14 Plus",
+  price: "₹54,900",
+  desc: "A huge display paired with incredible battery life for entertainment lovers.",
+  image: "https://i.pinimg.com/1200x/a5/a8/2f/a5a82f2019d448cbb900331ce726e90e.jpg",
+  tags: ["A15 Bionic", "6.7″ OLED", "Long Battery"],
+  colors: ["#e8e3d8", "#394a58", "#692929", "#1a1a1a"],
+},
+
+{
+  id: 12,
+  category: "Everyday Choice",
+  name: "iPhone 14",
+  price: "₹49,900",
+  desc: "Reliable performance, enhanced safety features, and excellent cameras.",
+  image: "https://i.pinimg.com/736x/ba/0e/f4/ba0ef4f259b71eecab1784150a994112.jpg",
+  tags: ["A15 Bionic", "Crash Detection", "Satellite SOS"],
+  colors: ["#e8e3d8", "#394a58", "#692929", "#1a1a1a"],
+},
+
+{
+  id: 13,
+  category: "Pro Series",
+  name: "iPhone 13 Pro Max",
+  price: "₹49,900",
+  desc: "ProMotion technology, premium cameras, and outstanding battery life.",
+  image: "https://i.pinimg.com/1200x/51/ad/f3/51adf327343f44f700cfdc8433cac0ab.jpg",
+  tags: ["A15 Bionic", "120Hz ProMotion", "Telephoto"],
+  colors: ["#d4cbb8", "#50616b", "#f5f5f0", "#1f1f1f"],
+},
+
+{
+  id: 14,
+  category: "Everyday Choice",
+  name: "iPhone 13",
+  price: "₹39,900",
+  desc: "A balanced iPhone experience with great cameras and dependable performance.",
+  image: "https://i.pinimg.com/1200x/73/94/cb/7394cb093abc66d681640fff65dcf30a.jpg",
+  tags: ["A15 Bionic", "Dual Camera", "5G"],
+  colors: ["#f6c8d3", "#bfd8b8", "#a7c7e7", "#1a1a1a"],
+},
+
+{
+  id: 15,
+  category: "Compact",
+  name: "iPhone 13 Mini",
+  price: "₹34,900",
+  desc: "Small in size, big on performance with the powerful A15 Bionic chip.",
+  image: "https://i.pinimg.com/736x/6f/c9/1a/6fc91a20112ccd7e584b807077f71333.jpg",
+  tags: ["A15 Bionic", "Compact Design", "5G"],
+  colors: ["#f6c8d3", "#bfd8b8", "#a7c7e7", "#1a1a1a"],
+},
 ];
 
-function ColorDot({ color, name, active, onClick }) {
+function CartButton() {
+  const [added, setAdded] = useState(false);
+  function handleClick() {
+    if (added) return;
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2200);
+  }
   return (
-    <button
-      className={`color-dot${active ? " active" : ""}`}
-      style={{ backgroundColor: color }}
-      onClick={onClick}
-      title={name}
-      aria-label={name}
-    />    
-      
+    <button className={`cart-btn${added ? " added" : ""}`} onClick={handleClick}>
+      {added ? "✓ Added" : "Add to cart"}
+    </button>
   );
 }
 
-function IPhoneCard({ phone }) {
-  const [selectedColor, setSelectedColor] = useState(0);
-  const [added, setAdded] = useState(false);
-
-  const handleAdd = () => {
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
-  };
+function ProductCard({ product }) {
+  const [activeColor, setActiveColor] = useState(0);
 
   return (
     <div className="iphone-card">
-      {phone.badge && (
-        <span
-          className="card-badge"
-          style={{ backgroundColor: phone.badgeColor }}
-        >
-          {phone.badge}
-        </span>
-      )}
+      <div className="iphone-image-box">
+        {product.badge && (
+          <span className="badge">{product.badge}</span>
+        )}
 
-      <div className="card-image-area">
-        <div
-          className="card-phone-visual"
-          style={{ backgroundColor: phone.colors[selectedColor] }}
-        >
-          <div className="phone-notch" />
-          <div className="phone-screen">
-            <div className="phone-screen-glow" />
-          </div>
-          <div className="phone-side-btn" />
-          <div className="phone-vol-btn top" />
-          <div className="phone-vol-btn bottom" />
-        </div>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="iphone-image"
+        />
       </div>
 
-      <div className="card-body">
-        <span className="card-category">{phone.category}</span>
-        <h3 className="card-title">{phone.model}</h3>
-        <p className="card-year">{phone.year}</p>
-        <p className="card-desc">{phone.description}</p>
+      <div className="iphone-info">
+        <span className="iphone-category">
+          {product.category}
+        </span>
 
-        <div className="card-features">
-          {phone.features.map((f) => (
-            <span key={f} className="feature-tag">{f}</span>
+        <p className="iphone-name">{product.name}</p>
+
+        <p className="iphone-desc">
+          {product.desc}
+        </p>
+
+        <div className="color-dots">
+          {product.colors.map((color, index) => (
+            <button
+              key={index}
+              className={
+                activeColor === index
+                  ? "color-dot active"
+                  : "color-dot"
+              }
+              style={{ backgroundColor: color }}
+              onClick={() => setActiveColor(index)}
+            />
           ))}
         </div>
 
-        <div className="card-colors">
-          <span className="color-label">
-            {phone.colorNames[selectedColor]}
-          </span>
-          <div className="color-dots">
-            {phone.colors.map((c, i) => (
-              <ColorDot
-                key={i}
-                color={c}
-                name={phone.colorNames[i]}
-                active={selectedColor === i}
-                onClick={() => setSelectedColor(i)}
-              />
-            ))}
-          </div>
+        <div className="iphone-tags">
+          {product.tags.map((tag, index) => (
+            <span key={index} className="tag">
+              {tag}
+            </span>
+          ))}
         </div>
 
-        <div className="card-footer">
-          <span className="card-price">{phone.price}</span>
-          <button
-            className={`add-btn${added ? " added" : ""}`}
-            onClick={handleAdd}
-          >
-            {added ? "✓ Added" : "Add to Cart"}
-          </button>
+        <div className="iphone-bottom">
+          <span className="iphone-price">
+            {product.price}
+          </span>
+
+          <CartButton />
         </div>
       </div>
     </div>
   );
 }
 
-export default function IPhoneSection() {
-  const [filter, setFilter] = useState("All");
-  const categories = ["All", "Latest Release", "Pro Series", "Classic Pro"];
-
-  const filtered =
-    filter === "All" ? iphones : iphones.filter((p) => p.category === filter);
-
+function Store() {
   return (
-    <section className="iphone-section">
-      <div className="section-header">
-        <div className="header-eyebrow">Apple Collection</div>
-        <h1 className="section-title">iPhone Lineup</h1>
-        <p className="section-subtitle">
-          From the cutting-edge iPhone 17 Pro Max to the iconic 13 Pro Max —
-          find your perfect iPhone.
-        </p>
+    <div className="store-wrapper">
+      <section className="hero">
+        <div className="hero-content">
+          <p className="hero-eyebrow">
+            Summer 2025 Drop
+          </p>
 
-        <div className="filter-bar">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`filter-btn${filter === cat ? " active" : ""}`}
-              onClick={() => setFilter(cat)}
-            >
-              {cat}
+          <h1 className="hero-title">
+            Built Different.
+            <br />
+            <span>Priced Right.</span>
+          </h1>
+
+          <p className="hero-sub">
+            The latest iPhones. Bold colors, titanium builds,
+            and a camera that outthinks the moment.
+          </p>
+
+          <div className="hero-buttons">
+            <button className="btn btn-primary">
+              Shop Now
             </button>
+
+            <button className="btn btn-outline">
+              Explore Models
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="iphone-section">
+        <div className="section-heading">
+          <h2>iPhone Lineup</h2>
+
+          <p>
+            Find the model that fits your life — and your budget.
+          </p>
+        </div>
+
+        <div className="iphone-grid">
+          {PRODUCTS.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
           ))}
         </div>
-      </div>
-
-      <div className="cards-grid">
-        {filtered.map((phone) => (
-          <IPhoneCard key={phone.id} phone={phone} />
-        ))}
-      </div>
-
-      <div className="section-footer">
-        <p>Prices include GST. EMI options available from ₹3,999/month.</p>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
+
+export default Store;

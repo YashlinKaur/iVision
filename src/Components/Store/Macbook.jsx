@@ -2,300 +2,188 @@ import React, { useState } from "react";
 import "./Store.css";
 
 const macbooks = [
-  // ── Latest Release ──────────────────────────────
   {
     id: 1,
-    model: "MacBook Pro 14\" M4 Pro",
-    category: "Latest Release",
-    year: 2024,
-    description:
-      "The most advanced 14-inch MacBook Pro ever. M4 Pro chip with a stunning Liquid Retina XDR display and up to 24 hours of battery life.",
-    features: ["M4 Pro Chip", "14\" Liquid XDR", "24hr Battery", "Space Black"],
-    price: "₹2,09,900",
-    badge: "New",
-    badgeColor: "#0071e3",
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spaceblack-select-202411?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MX2Y3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Air 13-inch (M4, 2025)",
+    desc: "Latest ultra-portable MacBook with M4 chip and Apple Intelligence.",
+    price: "₹99,900",
+    img: "https://i.pinimg.com/1200x/25/c3/a8/25c3a8ec425f78fbd8383d2e6ebd62bd.jpg"
   },
   {
     id: 2,
-    model: "MacBook Pro 16\" M4 Pro",
-    category: "Latest Release",
-    year: 2024,
-    description:
-      "Supercharged by M4 Pro. The biggest, boldest MacBook Pro with a stunning 16-inch Liquid Retina XDR display.",
-    features: ["M4 Pro Chip", "16\" Liquid XDR", "24hr Battery", "Space Black"],
-    price: "₹2,49,900",
-    badge: "New",
-    badgeColor: "#0071e3",
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spaceblack-select-202411?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MX2U3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Air 15-inch (M4, 2025)",
+    desc: "Large display, M4 performance, and all-day battery life.",
+    price: "₹124,900",
+    img: "https://i.pinimg.com/1200x/bd/16/0c/bd160c8a571eecfa20b58612d424d06c.jpg"
   },
   {
     id: 3,
-    model: "MacBook Air 13\" M4",
-    category: "Latest Release",
-    year: 2025,
-    description:
-      "Strikingly thin. Incredibly powerful. The M4 chip, a brilliant 13-inch Liquid Retina display, and a brand-new Sky Blue color.",
-    features: ["M4 Chip", "13\" Liquid Retina", "18hr Battery", "Sky Blue"],
-    price: "₹1,19,900",
-    badge: "New",
-    badgeColor: "#0071e3",
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-skyblue-select-202503?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MXCU3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 14-inch (M4)",
+    desc: "Professional laptop with Liquid Retina XDR display.",
+    price: "₹169,900",
+    img: "https://i.pinimg.com/1200x/97/43/0a/97430af9b634bcacc08bbb74623e0530.jpg"
   },
   {
     id: 4,
-    model: "MacBook Air 15\" M4",
-    category: "Latest Release",
-    year: 2025,
-    description:
-      "Big display energy. The 15-inch MacBook Air with M4 chip and Sky Blue finish — power without compromise.",
-    features: ["M4 Chip", "15\" Liquid Retina", "18hr Battery", "Sky Blue"],
-    price: "₹1,39,900",
-    badge: "New",
-    badgeColor: "#0071e3",
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba15-skyblue-select-202503?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MXCV3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 14-inch (M4 Pro)",
+    desc: "Advanced performance for developers and creators.",
+    price: "₹199,900",
+    img: "https://i.pinimg.com/736x/40/b0/0b/40b00b6b7da3f8d94b53bd6ce8a44c15.jpg"
   },
-
-  // ── Pro Series ───────────────────────────────────
   {
     id: 5,
-    model: "MacBook Pro 14\" M3 Pro",
-    category: "Pro Series",
-    year: 2023,
-    description:
-      "M3 Pro chip with a next-generation GPU architecture. Hardware-accelerated ray tracing for breathtaking visuals.",
-    features: ["M3 Pro Chip", "14\" Liquid XDR", "18hr Battery", "Space Black"],
-    price: "₹1,99,900",
-    badge: "Popular",
-    badgeColor: "#1d1d1f",
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spaceblack-select-202311?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MRX33LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 14-inch (M4 Max)",
+    desc: "Extreme power for 3D rendering and AI workloads.",
+    price: "₹319,900",
+    img: "https://i.pinimg.com/1200x/18/30/7d/18307dfde0f655618d822607bda8c931.jpg"
   },
   {
     id: 6,
-    model: "MacBook Pro 16\" M3 Pro",
-    category: "Pro Series",
-    year: 2023,
-    description:
-      "Breathtaking 16-inch Liquid Retina XDR display. M3 Pro chip built for the most demanding workflows.",
-    features: ["M3 Pro Chip", "16\" Liquid XDR", "22hr Battery", "Space Black"],
-    price: "₹2,29,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spaceblack-select-202311?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MRW13LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 16-inch (M4 Pro)",
+    desc: "Large display with workstation-class performance.",
+    price: "₹249,900",
+    img: "https://i.pinimg.com/1200x/cc/38/48/cc3848a2541c91ecb971f757d2db10ba.jpg"
   },
   {
     id: 7,
-    model: "MacBook Air 13\" M3",
-    category: "Pro Series",
-    year: 2024,
-    description:
-      "The world's best consumer laptop, now with M3. Supports two external displays and Wi-Fi 6E.",
-    features: ["M3 Chip", "13\" Liquid Retina", "18hr Battery", "Midnight"],
-    price: "₹1,14,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-midnight-select-202402?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MRXW3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 16-inch (M4 Max)",
+    desc: "The most powerful MacBook for demanding professionals.",
+    price: "₹349,900",
+    img: "https://i.pinimg.com/736x/a4/3d/6b/a43d6bb07745fed56ade51d339bce957.jpg"
   },
   {
     id: 8,
-    model: "MacBook Air 15\" M3",
-    category: "Pro Series",
-    year: 2024,
-    description:
-      "The 15-inch MacBook Air with M3 chip. The thinnest, lightest 15-inch laptop ever made.",
-    features: ["M3 Chip", "15\" Liquid Retina", "18hr Battery", "Midnight"],
-    price: "₹1,34,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba15-midnight-select-202402?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MRYU3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Air 13-inch (M3)",
+    desc: "Lightweight design with excellent performance and efficiency.",
+    price: "₹114,900",
+    img: "https://i.pinimg.com/736x/39/6b/90/396b909423ab6e4f265bdd0e78f75b87.jpg"
   },
-
-  // ── Classic ──────────────────────────────────────
   {
     id: 9,
-    model: "MacBook Pro 14\" M2 Pro",
-    category: "Classic",
-    year: 2023,
-    description:
-      "M2 Pro with up to 12-core CPU and 19-core GPU. ProMotion display with up to 120Hz refresh rate.",
-    features: ["M2 Pro Chip", "14\" Liquid XDR", "18hr Battery", "Space Gray"],
-    price: "₹1,89,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202301?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPHF3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Air 15-inch (M3)",
+    desc: "Extra screen space with Apple's M3 chip.",
+    price: "₹134,900",
+    img: "https://i.pinimg.com/1200x/a5/7a/ea/a57aea9092201d182cdf2e24d63a91c0.jpg"
   },
   {
     id: 10,
-    model: "MacBook Air 13\" M2",
-    category: "Classic",
-    year: 2022,
-    description:
-      "Redesigned from the ground up. M2 chip with MagSafe charging in the iconic fanless design.",
-    features: ["M2 Chip", "13\" Liquid Retina", "18hr Battery", "Midnight"],
-    price: "₹99,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-midnight-select-202206?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MLXY3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 14-inch (M3 Pro)",
+    desc: "Powerful laptop for coding, editing, and design.",
+    price: "₹199,900",
+    img: "https://i.pinimg.com/736x/28/54/d7/2854d79af2e0f15c702f1b6b4a53d1d9.jpg"
   },
   {
     id: 11,
-    model: "MacBook Pro 16\" M2 Pro",
-    category: "Classic",
-    year: 2023,
-    description:
-      "M2 Pro powers the most demanding creative tasks. A massive 16-inch Liquid Retina XDR display with a 120Hz ProMotion.",
-    features: ["M2 Pro Chip", "16\" Liquid XDR", "22hr Battery", "Space Gray"],
-    price: "₹2,19,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202301?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MNWA3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Pro 16-inch (M3 Max)",
+    desc: "Desktop-class performance in a portable design.",
+    price: "₹329,900",
+    img: "https://i.pinimg.com/736x/76/43/96/764396d55e7b3d5d43f4778a7d8cc082.jpg"
   },
   {
     id: 12,
-    model: "MacBook Air 15\" M2",
-    category: "Classic",
-    year: 2023,
-    description:
-      "The first 15-inch MacBook Air. Big, beautiful 15.3-inch Liquid Retina display in a fanless, silent design.",
-    features: ["M2 Chip", "15\" Liquid Retina", "18hr Battery", "Midnight"],
-    price: "₹1,19,900",
-    badge: null,
-    badgeColor: null,
-    img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba15-midnight-select-202306?wid=400&hei=300&fmt=png-alpha",
-    imgFallback: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQKX3LL_A?wid=400&hei=300&fmt=png-alpha",
+    name: "MacBook Air 13-inch (M2)",
+    desc: "Redesigned MacBook Air with MagSafe charging.",
+    price: "₹99,900",
+    img: "https://i.pinimg.com/736x/b4/05/49/b40549bbe5c0f8ae086109553f49988d.jpg"
   },
+  {
+    id: 13,
+    name: "MacBook Air 15-inch (M2)",
+    desc: "Thin and light with a larger 15-inch display.",
+    price: "₹124,900",
+    img: "https://i.pinimg.com/1200x/18/30/7d/18307dfde0f655618d822607bda8c931.jpg"
+  },
+  {
+    id: 14,
+    name: "MacBook Pro 13-inch (M2)",
+    desc: "Classic MacBook Pro design powered by Apple Silicon.",
+    price: "₹129,900",
+    img: "https://i.pinimg.com/736x/09/f1/11/09f11130cd19c14f1dc5916a96366529.jpg"
+  },
+  {
+    id: 15,
+    name: "MacBook Air (M1)",
+    desc: "The legendary Apple Silicon laptop that changed everything.",
+    price: "₹79,900",
+    img: "https://i.pinimg.com/736x/da/c3/55/dac355181106bb20cca1a7440c21f4b0.jpg"
+  }
 ];
 
-const GENERIC_FALLBACK =
-  "https://pngimg.com/uploads/macbook/macbook_PNG39.png";
-
-const categories = ["All", "Latest Release", "Pro Series", "Classic"];
-
-function MacBookCard({ mac }) {
+function AddToCartButton({ onAdd }) {
   const [added, setAdded] = useState(false);
-  const [imgSrc, setImgSrc] = useState(mac.img);
-  const [triedFallback, setTriedFallback] = useState(false);
 
-  const handleImgError = () => {
-    if (!triedFallback) {
-      setImgSrc(mac.imgFallback);
-      setTriedFallback(true);
-    } else {
-      setImgSrc(GENERIC_FALLBACK);
-    }
-  };
-
-  const handleAdd = () => {
+  const handleClick = () => {
     setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
+    onAdd();
+
+    setTimeout(() => {
+      setAdded(false);
+    }, 2000);
   };
 
   return (
-    <div className="mac-card">
-      {mac.badge && (
-        <span
-          className="mac-card__badge"
-          style={{ backgroundColor: mac.badgeColor }}
-        >
-          {mac.badge}
-        </span>
-      )}
-
-      <div className="mac-card__vis">
-        <img
-          src={imgSrc}
-          alt={mac.model}
-          className="mac-card__img"
-          onError={handleImgError}
-          loading="lazy"
-        />
-      </div>
-
-      <div className="mac-card__body">
-        <span className="mac-card__cat">{mac.category}</span>
-        <h3 className="mac-card__name">{mac.model}</h3>
-        <p className="mac-card__year">{mac.year}</p>
-        <p className="mac-card__desc">{mac.description}</p>
-
-        <div className="mac-card__tags">
-          {mac.features.map((f) => (
-            <span key={f} className="mac-tag">
-              {f}
-            </span>
-          ))}
-        </div>
-
-        <div className="mac-card__footer">
-          <span className="mac-card__price">{mac.price}</span>
-          <button
-            className={`mac-btn${added ? " mac-btn--added" : ""}`}
-            onClick={handleAdd}
-          >
-            {added ? "✓ Added" : "Add to Cart"}
-          </button>
-        </div>
-      </div>
-    </div>
+    <button
+      className={`cart-btn${added ? " added" : ""}`}
+      onClick={handleClick}
+    >
+      {added ? "✓ Added" : "Add to Cart"}
+    </button>
   );
 }
 
 export default function MacBookSection() {
-  const [filter, setFilter] = useState("All");
-
-  const filtered =
-    filter === "All"
-      ? macbooks
-      : macbooks.filter((m) => m.category === filter);
+  const [cart, setCart] = useState([]);
 
   return (
-    <section className="mac-section">
-      <div className="mac-header">
-        <div className="mac-eyebrow">Apple Silicon</div>
-        <h1 className="mac-title">MacBook Lineup</h1>
-        <p className="mac-subtitle">
-          From the ultra-thin MacBook Air to the powerhouse MacBook Pro —
-          find the Mac built for you.
-        </p>
+    <div className="store-wrapper">
+      <section className="hero">
+        <div className="hero-content">
+          <p className="hero-eyebrow">Power Meets Portability</p>
 
-        <div className="mac-filter-bar">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`mac-filter-btn${filter === cat ? " active" : ""}`}
-              onClick={() => setFilter(cat)}
-            >
-              {cat}
-            </button>
+          <h1 className="hero-title">
+            MacBook<span>.</span>
+          </h1>
+
+          <p className="hero-sub">
+            Incredible performance, stunning displays, and all-day battery
+            life. Discover the MacBook that's right for you.
+          </p>
+        </div>
+      </section>
+
+      <section className="iphone-section">
+        <div className="section-heading">
+          <h2>All Models</h2>
+        </div>
+
+        <div className="iphone-grid">
+          {macbooks.map((item) => (
+            <div key={item.id} className="iphone-card">
+              <div className="iphone-image-box">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="iphone-image"
+                />
+              </div>
+
+              <div className="iphone-info">
+                <h3 className="iphone-name">{item.name}</h3>
+
+                <p className="iphone-desc">{item.desc}</p>
+
+                <div className="iphone-bottom">
+                  <span className="iphone-price">{item.price}</span>
+
+                  <AddToCartButton
+                    onAdd={() => setCart([...cart, item.id])}
+                  />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-      </div>
-
-      <div className="mac-grid">
-        {filtered.map((mac, i) => (
-          <div
-            key={mac.id}
-            className="mac-card-wrapper"
-            style={{ animationDelay: `${i * 55}ms` }}
-          >
-            <MacBookCard mac={mac} />
-          </div>
-        ))}
-      </div>
-
-      <div className="mac-section-footer">
-        <p>Prices include GST. EMI options available from ₹3,999/month. Free delivery on all orders.</p>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
