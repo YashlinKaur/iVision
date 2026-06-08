@@ -70,7 +70,6 @@ const Navbar = () => {
             <img src={logo} alt="logo" />
           </Link>
 
-          {/* Use desktop-nav as your wrapper */}
           <nav className="desktop-nav">
             <DropdownMenu
               title="Store"
@@ -83,13 +82,19 @@ const Navbar = () => {
             />
             <Link to="/aboutus" className="nav-link">About</Link>
           </nav>
-
+          
           <div className="auth-buttons">
             <Link to="/login" className="login-btn">Log in</Link>
             <Link to="/register" className="register-btn">Register</Link>
           </div>
 
-          <button className="mobile-toggle" onClick={() => setMobileMenu(true)}>☰</button>
+          <div className="cart">
+            <i className="fa-solid fa-cart-shopping"></i>
+          </div>
+
+          <button className="mobile-toggle" onClick={() => setMobileMenu(true)}>
+            <i className="fa-solid fa-bars"></i>
+          </button>
         </div>
     </header>
 

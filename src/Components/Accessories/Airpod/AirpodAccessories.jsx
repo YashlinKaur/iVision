@@ -1,22 +1,41 @@
 import React from "react";
-import "./Accessories.css";
-import Hero from "./Airpod/Hero";
-import Airpods from "./Airpod/Airpods";
-import Chargers from "./Airpod/Chargers";
-import EarCushions from "./Airpod/EarCushions";
+import "../Accessories.css";
+import AirPodsPage from "./AirpodPage";
 
 function AirpodAccessories() {
   return (
     <div className="mac-accessories">
-      <Hero />
-      <Airpods />
-      <Chargers />
-      <EarCushions />
-      
+      {/* Hero Page  */}
+      <section>
+        <div className="hero">
+          <div className="hero-content">
+            <p className="hero-eyebrow">AIRPODS & AUDIO</p>
+            <h1 className="acc-hero-title">
+              HEAR EVERY
+              <br />
+              <span>DETAIL.</span>
+            </h1>
+            <p className="hero-sub">
+              Every AirPod. Every sound. Authenticated Apple audio — built for
+              clarity, comfort, and immersive listening.
+            </p>
+            <div className="hero-buttons">
+              <button className="shop-btn">Shop Now</button>
+              <button className="explore-btn">Explore All</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* All Accessories  */}
+      <AirPodsPage />
+
       <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet"
       />
+
+      {/* Footer  */}
 
       <section className="why-section">
         <p className="why-label">Pure wireless freedom</p>

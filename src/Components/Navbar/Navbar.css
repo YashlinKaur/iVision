@@ -59,6 +59,14 @@
   color: #000;
 }
 
+/* CART */
+
+.cart{
+  margin: 0 25px;
+  font-size: 22px;
+}
+
+
 /* AUTH BUTTONS */
 
 .auth-buttons {

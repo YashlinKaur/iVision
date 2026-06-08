@@ -23,7 +23,7 @@ body {
 
 /* HERO */
 .hero {
-  min-height: 75vh;
+  min-height: 70vh;
   background: #000;
   display: flex;
   justify-content: center;
@@ -39,7 +39,7 @@ body {
   content: "";
   position: absolute;
   width: 700px;
-  height: 800px;
+  height: 700px;
   border-radius: 50%;
   
   background:
@@ -136,95 +136,8 @@ body {
   background: rgba(255,255,255,.08);
 }
 
-
-/* FILTER BAR */
-
-.filter-bar {
-    padding: 20px 22px;
-    background: #fff;
-    border-bottom: 1px solid #e5e5e5;
-    position: sticky;
-    top: 52px;
-    z-index: 90;
-}
-
-.filter-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap
-}
-
-.filter-label {
-    font-size: 13px;
-    color: var(--gray);
-    margin-right: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500
-}
-
-.filter-chip {
-    padding: 7px 23px;
-    border-radius: 980px;
-    border: 1px solid #d2d2d7;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 400;
-    color: var(--dark);
-    background: #fff;
-    font-family: 'Inter', sans-serif;
-}
-
-.filter-chip:hover {
-    border-color: var(--dark)
-}
-
-.filter-chip.active {
-    background: var(--dark);
-    color: #fff;
-    border-color: var(--dark)
-}
-
-/* MARQUEE */
-.marquee-wrap {
-    background: var(--dark);
-    padding: 13px 0;
-    margin-top: 20px;
-    overflow: hidden
-}
-
-.marquee {
-    display: flex;
-    gap: 60px;
-    animation: marquee 20s linear infinite;
-    width: max-content
-}
-
-.marquee-item {
-    font-size: 14px;
-    color: rgb(170, 168, 168);
-    white-space: nowrap;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0)
-    }
-
-    100% {
-        transform: translateX(-50%)
-    }
-}
-
-
 /* SECTION */
-.keyboard-section {
+.accessories-section {
   max-width: 1400px;
   margin: 80px auto;
   padding: 0 40px;
@@ -362,16 +275,36 @@ body {
 
 .bottom button {
   border: none;
-  border-radius: 10px;
+  border-radius: 50px;
   background: #000;
   color: white;
-  padding : 6px 25px;
+  padding : 6px 20px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Inter' , sans-serif;
+}
+
+.add-to-cart-btn {
+  border: none;
+  border-radius: 50px;
+  background: #000;
+  color: white;
+  padding: 6px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s, transform 0.2s;  /* ← transition add karo */
+}
+
+.add-to-cart-btn.added {
+  background: #34c759;
+  color: white;
 }
 
 .product-type {

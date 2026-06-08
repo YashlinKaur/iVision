@@ -7,25 +7,16 @@ import About from './Components/Aboutus/About'
 import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
 import Storemain from './Components/Store/Storemain/Storemain'
-import MacAccessories from './Components/Accessories/MacAccessories'
-import Keyboards from './Components/Accessories/Mac/Keyboards'
-import Mice from './Components/Accessories/Mac/Mice'
-import Hubs from './Components/Accessories/Mac/Hubs'
-import Display from './Components/Accessories/Mac/Display'
-import Audio from './Components/Accessories/Mac/Audio'
-import Protection from './Components/Accessories/Mac/Protection'
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 import Iphone from "./Components/Store/Iphone"
 import Airpods from './Components/Store/Airpods';
 import Macbook from './Components/Store/Macbook';
 import Watch from './Components/Store/Watch';
 
-import IPhoneAccessories from './Components/Accessories/IPhoneAccessories'
-import WatchAccessories from './Components/Accessories/WatchAccessories'
-import AirpodAccessories from './Components/Accessories/AirpodAccessories'
+import MacAccessories from './Components/Accessories/Mac/MacAccessories'
+import IPhoneAccessories from './Components/Accessories/IPhone/IPhoneAccessories'
+import WatchAccessories from './Components/Accessories/Watch/WatchAccessories'
+import AirpodAccessories from './Components/Accessories/Airpod/AirpodAccessories'
 
 
 const App = () => {
@@ -51,13 +42,6 @@ const App = () => {
 
            {/* Accessories  */}
            <Route path="/macaccessories" element={<MacAccessories />} />
-           {/* <Route path="/keyboards" element={<Keyboards />} />
-           <Route path="/mice" element={<Mice />} />
-           <Route path="/hubs" element={<Hubs />} />
-           <Route path="/display" element={<Display />} />
-           <Route path="/audio" element={<Audio />} />
-           <Route path="/protection" element={<Protection />} /> */}
-
            <Route path="/iphoneaccessories" element={<IPhoneAccessories />} />
            <Route path="/watchaccessories" element={<WatchAccessories />} />
            <Route path="/airpodaccessories" element={<AirpodAccessories />} />

@@ -1,32 +1,49 @@
 import React from "react";
-import Hero from "./IPhone/Hero";
-import Cases from "./IPhone/Cases";
-import Chargers from "./IPhone/Chargers";
-import Cables from "./IPhone/Cables";
-import MagSafe from "./IPhone/MagSafe";
-import ScreenProtectors from "./IPhone/ScreenProtectors";
-import PowerBanks from "./IPhone/PowerBanks";
-import "./Accessories.css";
+import "../Accessories.css";
+import IPhonePage from "./IPhonePage";
 
 function IPhoneAccessories() {
   return (
-    <main>
-      <Hero />
-      <Cases />
-      <Chargers />
-      <Cables />
-      <MagSafe />
-      <ScreenProtectors />
-      <PowerBanks />
+    <div className="mac-accessories">
 
-      {/* WHY SECTION */}
-      <section classNameName="why-section">
+      {/* Hero Page  */}
+      <section>
+        <div className="hero">
+          <div className="hero-content">
+            <p className="hero-eyebrow">IPHONE ACCESSORIES</p>
+            <h1 className="acc-hero-title">
+              POWER UP YOUR
+              <br />
+              <span>iPHONE.</span>
+            </h1>
+            <p className="hero-sub">
+              Premium iPhone accessories, curated and authenticated — cases,
+              chargers, cables, and more. Everything your iPhone deserves.
+            </p>
+            <div className="hero-buttons">
+              <button className="shop-btn">Shop Now</button>
+              <button className="explore-btn">Explore All</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* All Accessories  */}
+      <IPhonePage />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet"
+      />
+
+      {/* Footer Page */}
+      <section className="why-section">
         <p className="why-label">Designed for excellence</p>
         <h2 className="why-heading">
           Why <em>iPhone</em>
         </h2>
 
-        <div classNameName="why-grid">
+        <div className="why-grid">
           <div className="why-card">
             <span className="why-num">01</span>
             <div className="why-icon-row">
@@ -70,7 +87,7 @@ function IPhoneAccessories() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

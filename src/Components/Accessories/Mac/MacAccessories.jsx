@@ -1,29 +1,42 @@
 import React from "react";
-import Hero from "./Mac/Hero";
-import Keyboards from "./Mac/Keyboards";
-import Mice from "./Mac/Mice";
-import Hubs from "./Mac/Hubs";
-import Display from "./Mac/Display";
-import Audio from "./Mac/Audio";
-import Protection from "./Mac/Protection";
-import "./Accessories.css";
+import "../Accessories.css";
+import MacPage from "./MacPage";
 
 function MacAccessories() {
   return (
     <div className="mac-accessories">
-      <Hero />
-      <Keyboards />
-      <Mice />
-      <Hubs />
-      <Display />
-      <Audio />
-      <Protection />
+
+      {/* Hero Page  */}
+      <section>
+        <div className="hero">
+          <div className="hero-content">
+            <p className="hero-eyebrow">MAC ACCESSORIES</p>
+            <h1 className="acc-hero-title">
+              ELEVATE YOUR
+              <br />
+              <span>MAC SETUP.</span>
+            </h1>
+            <p className="hero-sub">
+              Premium accessories, curated and authenticated — everything your
+              Mac deserves.
+            </p>
+            <div className="hero-buttons">
+              <button className="shop-btn">Shop Now</button>
+              <button className="explore-btn">Explore All</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* All Accessories  */}
+        <MacPage />
 
       <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet"
       />
 
+      {/* Footer Page  */}
       <section className="why-section">
         <p className="why-label">Built for professionals</p>
         <h2 className="why-heading">
@@ -43,7 +56,6 @@ function MacAccessories() {
               efficiency for every task.
             </p>
           </div>
-
           <div className="why-card">
             <span className="why-num">02</span>
             <div className="why-icon-row">
@@ -57,7 +69,6 @@ function MacAccessories() {
               performance on every Mac.
             </p>
           </div>
-
           <div className="why-card">
             <span className="why-num">03</span>
             <div className="why-icon-row">
