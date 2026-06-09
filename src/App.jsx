@@ -20,9 +20,11 @@ import IPhoneAccessories from './Components/Accessories/IPhone/IPhoneAccessories
 import WatchAccessories from './Components/Accessories/Watch/WatchAccessories'
 import AirpodAccessories from './Components/Accessories/Airpod/AirpodAccessories'
 
+import { CartProvider } from "./Components/Cart/CartContext";
 
 const App = () => {
   return (
+    <CartProvider>
     <div>
       <BrowserRouter>
       <ScrollToTop />
@@ -50,6 +52,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </div>
+    </CartProvider>
   )
 }
 

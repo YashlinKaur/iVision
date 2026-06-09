@@ -17,7 +17,7 @@ function IPhoneAccessories() {
               <span>iPHONE.</span>
             </h1>
             <p className="hero-sub">
-              Premium iPhone accessories, curated and authenticated — cases,
+              Premium iPhone accessories, curated and authenticated - cases,
               chargers, cables, and more. Everything your iPhone deserves.
             </p>
             <div className="hero-buttons">

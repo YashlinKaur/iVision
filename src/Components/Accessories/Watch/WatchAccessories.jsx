@@ -17,8 +17,7 @@ function WatchAccessories() {
               <span>FUTURE.</span>
             </h1>
             <p className="hero-sub">
-              Every model. Every size. Authenticated Apple Watches —
-              built for health, fitness, and everything in between.
+              Every model. Every size. Authenticated Apple Watches - built for health, fitness, and everything in between.
             </p>
             <div className="hero-buttons">
               <button className="shop-btn">Shop Now</button>

@@ -16,7 +16,7 @@ function AirpodAccessories() {
               <span>DETAIL.</span>
             </h1>
             <p className="hero-sub">
-              Every AirPod. Every sound. Authenticated Apple audio — built for
+              Every AirPod. Every sound. Authenticated Apple audio - built for
               clarity, comfort, and immersive listening.
             </p>
             <div className="hero-buttons">

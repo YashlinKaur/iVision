@@ -17,7 +17,7 @@ function MacAccessories() {
               <span>MAC SETUP.</span>
             </h1>
             <p className="hero-sub">
-              Premium accessories, curated and authenticated — everything your
+              Premium accessories, curated and authenticated - everything your
               Mac deserves.
             </p>
             <div className="hero-buttons">

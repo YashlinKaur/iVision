@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { caseProducts, chargerProducts, cableProducts, magSafeProducts, screenProducts, powerBankProducts } from "./IPhone";
+import { useCart } from "../../Cart/CartContext"
 
 function ProductCard({ item, addedItems, onAddToCart }) {
   const isAdded = addedItems[item.id];
@@ -25,7 +26,7 @@ function ProductCard({ item, addedItems, onAddToCart }) {
           </div>
           <button
             className={`add-to-cart-btn ${isAdded ? "added" : ""}`}
-            onClick={() => onAddToCart(item.id)}
+            onClick={() => onAddToCart(item)}
           >
             {isAdded ? "✓ Added" : "Add to cart"}
           </button>
@@ -51,7 +52,7 @@ function ProductSection({ title, subtitle, products, addedItems, onAddToCart }) 
             key={item.id}
             item={item}
             addedItems={addedItems}
-            onAddToCart={onAddToCart}
+            onAddToCart={(item) => onAddToCart(item)} 
           />
         ))}
       </div>
@@ -61,10 +62,21 @@ function ProductSection({ title, subtitle, products, addedItems, onAddToCart }) 
 
 function IPhonePage() {
   const [addedItems, setAddedItems] = useState({});
+  const { addToCart } = useCart(); 
 
-  const handleAddToCart = (id) => {
-    setAddedItems((prev) => ({ ...prev, [id]: true }));
-  };
+  const handleAddToCart = (item) => {
+  setAddedItems((prev) => ({ ...prev, [item.id]: true }));
+
+  addToCart({
+    id: item.id,
+    brand: item.category,
+    name: item.name,
+    image: item.img,
+    price: parsePrice(item.price),
+    originalPrice: parsePrice(item.originalPrice),
+    tags: item.tags || [],
+  });
+};
 
   return (
     <>
@@ -112,6 +124,12 @@ function IPhonePage() {
       />
     </>
   );
+}
+
+function parsePrice(priceStr) {
+  if (!priceStr) return 0;
+  if (typeof priceStr === "number") return priceStr;
+  return Number(priceStr.replace(/[₹,]/g, "")) || 0;
 }
 
 export default IPhonePage;
