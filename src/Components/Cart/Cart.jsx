@@ -66,7 +66,8 @@ const Cart = () => {
                   </button>
                 </div>
                 <button className="del-btn" onClick={() => removeItem(item.id)}>
-                  Remove
+                  Remove  { " "}
+                  <i className="fa-solid fa-xmark"></i>
                 </button>
               </div>
             </div>
