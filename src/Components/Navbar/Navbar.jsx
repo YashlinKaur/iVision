@@ -89,7 +89,7 @@ const Navbar = () => {
           </div>
 
           <div className="cart">
-            <i className="fa-solid fa-cart-shopping"></i>
+            <Link to="/cart" ><i className="fa-solid fa-cart-shopping"></i></Link>
           </div>
 
           <button className="mobile-toggle" onClick={() => setMobileMenu(true)}>

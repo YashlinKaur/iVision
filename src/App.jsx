@@ -6,12 +6,14 @@ import Home from './Home'
 import About from './Components/Aboutus/About'
 import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
-import Storemain from './Components/Store/Storemain/Storemain'
+import Cart from './Components/Cart/Cart';
 
 import Iphone from "./Components/Store/Iphone"
 import Airpods from './Components/Store/Airpods';
 import Macbook from './Components/Store/Macbook';
 import Watch from './Components/Store/Watch';
+
+import Storemain from './Components/Store/Storemain/Storemain'
 
 import MacAccessories from './Components/Accessories/Mac/MacAccessories'
 import IPhoneAccessories from './Components/Accessories/IPhone/IPhoneAccessories'
@@ -29,16 +31,16 @@ const App = () => {
           <Route path="/" element={<Home />} />
            <Route path="/aboutus" element={<About />} />
            <Route path="/login" element={<Login />} />
-           <Route path="/mac" element={<MacAccessories />} />
-           <Route path="/Store" element={<Storemain/>} />
-           <Route path="/Watch" element={<Watch/>} />
-           <Route path="/Iphone" element={<Iphone/>} />
-           <Route path="/Airpods" element={<Airpods/>} />
-           <Route path="/Macbook" element={<Macbook/>} />
            <Route path="/Register" element={<Register />} />
+           <Route path="/cart" element={<Cart />} />
 
             {/* Store  */}
            <Route path="/Store" element={<Storemain/>} />
+           <Route path="/mac" element={<MacAccessories />} />
+           <Route path="/watch" element={<Watch/>} />
+           <Route path="/iphone" element={<Iphone/>} />
+           <Route path="/airpods" element={<Airpods/>} />
+           <Route path="/macbook" element={<Macbook/>} />
 
            {/* Accessories  */}
            <Route path="/macaccessories" element={<MacAccessories />} />
