@@ -5,7 +5,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Home";
 import About from "./Components/Aboutus/About";
 import Login from "./Components/Login/Login";
-<<<<<<< Updated upstream
 import Register from "./Components/Register/Register";
 import Cart from "./Components/Cart/Cart";
 
@@ -13,21 +12,6 @@ import Iphone from "./Components/Store/Iphone";
 import Airpods from "./Components/Store/Airpods";
 import Macbook from "./Components/Store/Macbook";
 import Watch from "./Components/Store/Watch";
-=======
-import Register from './Components/Register/Register'
-import Storemain from './Components/Store/Storemain/Storemain'
-import MacAccessories from './Components/Accessories/MacAccessories'
-import Keyboards from './Components/Accessories/Mac/Keyboards'
-import Mice from './Components/Accessories/Mac/Mice'
-import Hubs from './Components/Accessories/Mac/Hubs'
-import Display from './Components/Accessories/Mac/Display'
-import Audio from './Components/Accessories/Mac/Audio'
-import Protection from './Components/Accessories/Mac/Protection'
-import Iphone from "./Components/Store/Iphone"
-import Airpods from './Components/Store/Airpods';
-import Macbook from './Components/Store/Macbook';
-import Watch from './Components/Store/Watch';
->>>>>>> Stashed changes
 
 import Storemain from "./Components/Store/Storemain/Storemain";
 
