@@ -70,18 +70,25 @@ function MacPage() {
   const [addedItems, setAddedItems] = useState({});
   const { addToCart } = useCart();
 
-  const handleAddToCart = (item) => {
-    setAddedItems((prev) => ({ ...prev, [item.id]: true }));
-    addToCart({
-      id: item.id,
-      brand: item.category,
-      name: item.name,
-      image: item.img,
-      price: parsePrice(item.price),
-      originalPrice: parsePrice(item.originalPrice),
-      tags: item.tags || [],
-    });
-  };
+const handleAddToCart = (item) => {
+  console.log("Product Added:", item);
+
+  setAddedItems((prev) => ({
+    ...prev,  
+    [item.id]: true,
+  }));
+
+  addToCart({
+    id: item.id,
+    brand: item.category,
+    name: item.name,
+    image: item.img,
+    price: parsePrice(item.price),
+    originalPrice: parsePrice(item.originalPrice),
+    tags: item.tags || [],
+    qty: 1,
+  });
+};
 
   return (
     <>

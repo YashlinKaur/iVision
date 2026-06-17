@@ -1,7 +1,6 @@
 /* my css file - explore section */
 /* made by me */
 
-/* variables */
 :root {
   --black: #0a0a0a;
   --white: #ffffff;
@@ -15,22 +14,17 @@
   --gridGap: 16px;
 }
 
-/* ===================== */
-/* EXPLORE SECTION STUFF */
-/* ===================== */
-
+/* EXPLORE SECTION */
 .explore-section {
   padding: 7rem 6%;
-  background: #fff; /* white */
+  background: #fff;
 }
 
-/* the title area at top */
 .explore-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-/* small text above the main title */
 .explore-eyebrow {
   display: flex;
   align-items: center;
@@ -44,7 +38,6 @@
   margin-bottom: 1rem;
 }
 
-/* the little lines on each side of the eyebrow text */
 .eyebrow-line {
   display: block;
   width: 28px;
@@ -52,7 +45,6 @@
   background: var(--gray-200);
 }
 
-/* BIG TITLE */
 .explore-title {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 800;
@@ -62,14 +54,12 @@
   margin-bottom: 0.9rem;
 }
 
-/* italic part inside the title */
 .explore-title em {
   font-style: italic;
   font-weight: 300;
   color: var(--gray-600);
 }
 
-/* subtitle / description below title */
 .explore-subtitle {
   font-size: 0.93rem;
   color: var(--gray-400);
@@ -78,18 +68,13 @@
   line-height: 1.7;
 }
 
-/* the grid that holds all the cards */
-/* desktop: 3 columns */
 .explore-grid {
   display: grid;
   gap: var(--gridGap);
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* ============ */
-/* SINGLE CARD  */
-/* ============ */
-
+/* SINGLE CARD */
 .explore-card {
   position: relative;
   background: var(--white);
@@ -102,19 +87,14 @@
   overflow: hidden;
   cursor: pointer;
   min-height: 280px;
-  /* transition for hover effect */
-  transition: border-color 0.38s var(--myAnimation),
-              transform 0.38s var(--myAnimation);
+  transition: border-color 0.38s var(--myAnimation), transform 0.38s var(--myAnimation);
 }
 
-/* card when hovered */
 .explore-card.is-hovered {
   border-color: #1a1a1a;
   transform: translateY(-4px);
 }
 
-/* the black background that slides up on hover */
-/* got this idea from youtube lol */
 .card-hover-bg {
   position: absolute;
   inset: 0;
@@ -125,26 +105,16 @@
   z-index: 0;
 }
 
-/* show the black bg when hovered */
 .explore-card.is-hovered .card-hover-bg {
   transform: translateY(0);
 }
 
-/* these need to go above the black background */
-.card-number,
-.card-badge,
-.card-body,
-.card-divider,
-.card-footer {
+.card-number, .card-badge, .card-body, .card-divider, .card-footer {
   position: relative;
   z-index: 1;
 }
 
-/* -------- */
-/* NUMBER   */
-/* -------- */
-
-/* the 01 02 03 numbers */
+/* NUMBER */
 .card-number {
   font-size: 0.62rem;
   font-weight: 700;
@@ -157,11 +127,7 @@
   color: #2a2a2a;
 }
 
-/* -------- */
-/* BADGE    */
-/* -------- */
-
-/* the little pill/tag thing */
+/* BADGE */
 .card-badge {
   align-self: flex-start;
   font-size: 0.62rem;
@@ -169,13 +135,11 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   padding: 4px 11px;
-  border-radius: 999px; /* fully round */
+  border-radius: 999px;
   border: 1px solid var(--gray-200);
   color: var(--gray-600);
   background: var(--gray-50);
-  transition: background 0.38s var(--myAnimation),
-              border-color 0.38s var(--myAnimation),
-              color 0.38s var(--myAnimation);
+  transition: background 0.38s var(--myAnimation), border-color 0.38s var(--myAnimation), color 0.38s var(--myAnimation);
 }
 
 .explore-card.is-hovered .card-badge {
@@ -184,12 +148,9 @@
   color: #888;
 }
 
-/* -------- */
-/* BODY     */
-/* -------- */
-
+/* BODY */
 .card-body {
-  flex: 1; /* take up remaining space */
+  flex: 1;
 }
 
 .card-name {
@@ -217,11 +178,7 @@
   color: #666;
 }
 
-/* -------- */
-/* DIVIDER  */
-/* -------- */
-
-/* horizontal line */
+/* DIVIDER */
 .card-divider {
   height: 1px;
   background: var(--gray-100);
@@ -232,21 +189,14 @@
   background: #222;
 }
 
-/* -------- */
-/* FOOTER   */
-/* -------- */
-
+/* FOOTER */
 .card-footer {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
-/* -------- */
-/* CHIPS    */
-/* -------- */
-
-/* the small tag things showing what products */
+/* CHIPS */
 .card-products {
   display: flex;
   flex-wrap: wrap;
@@ -261,9 +211,7 @@
   border: 1px solid var(--gray-100);
   border-radius: 6px;
   padding: 3px 8px;
-  transition: background 0.38s var(--myAnimation),
-              color 0.38s var(--myAnimation),
-              border-color 0.38s var(--myAnimation);
+  transition: background 0.38s var(--myAnimation), color 0.38s var(--myAnimation), border-color 0.38s var(--myAnimation);
 }
 
 .explore-card.is-hovered .product-chip {
@@ -272,7 +220,6 @@
   color: #777;
 }
 
-/* the +3 or +5 chip */
 .chip-more {
   font-weight: 700;
   color: var(--gray-400);
@@ -282,26 +229,25 @@
   color: #555;
 }
 
-/* -------- */
-/* CTA ROW  */
-/* -------- */
 
+/* CTA ROW */
 .card-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
-/* the "starting from $XX" text */
 .starting-from {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--gray-400);
   transition: color 0.38s var(--myAnimation);
+  white-space: nowrap;
 }
 
 .starting-from strong {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--black);
   letter-spacing: -0.02em;
@@ -316,48 +262,46 @@
   color: #fff;
 }
 
-/* -------- */
-/* BUTTON   */
-/* -------- */
-
+/* BUTTON */
 .explore-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   border-radius: 999px;
-  padding: 10px 18px;
-  letter-spacing: 0.04em;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  white-space: nowrap;
   transition: all 0.35s var(--myAnimation);
 }
 
-/* button changes when you hover the card */
 .explore-card:hover .explore-btn {
-  background: #fff;
-  color: #000;
-  border: 1px solid #000;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #1a1a1a;
   gap: 10px;
 }
 
-/* button press effect */
 .explore-btn:active {
   transform: scale(0.96);
 }
 
-/* arrow icon inside button */
 .btn-arrow {
   transition: transform 0.35s var(--myAnimation);
+  flex-shrink: 0;
 }
 
 .explore-card:hover .btn-arrow {
   transform: translateX(3px);
 }
 
-/* ================================== */
-/* RESPONSIVE - for different screens */
-/* ================================== */
-
-/* tablet - 2 columns */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .explore-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -365,7 +309,6 @@
   }
 }
 
-/* smaller tablet */
 @media (max-width: 768px) {
   .explore-section {
     padding: 5rem 5%;
@@ -382,7 +325,6 @@
   }
 }
 
-/* big phone */
 @media (max-width: 600px) {
   .explore-section {
     padding: 4rem 4%;
@@ -408,7 +350,6 @@
   }
 }
 
-/* small phone - only 1 column */
 @media (max-width: 400px) {
   .explore-grid {
     grid-template-columns: 1fr;

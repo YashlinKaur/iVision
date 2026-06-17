@@ -1,8 +1,11 @@
 import React from "react";
 import "./Cart.css";
 import { useCart } from "./CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
   const { cartItems, removeItem, increaseQty, decreaseQty } = useCart();
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -66,8 +69,7 @@ const Cart = () => {
                   </button>
                 </div>
                 <button className="del-btn" onClick={() => removeItem(item.id)}>
-                  Remove  { " "}
-                  <i className="fa-solid fa-xmark"></i>
+                  Remove <i className="fa-solid fa-xmark"></i>
                 </button>
               </div>
             </div>
@@ -92,7 +94,10 @@ const Cart = () => {
           <span>₹{total.toLocaleString("en-IN")}</span>
         </div>
         <input type="text" placeholder="Coupon Code" className="coupon-input" />
-        <button className="checkout-btn">Proceed to Checkout →</button>
+
+        <button className="checkout-btn" onClick={() => navigate("/checkout")}>
+          Proceed to Checkout →
+        </button>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Explore.css";
 
 const categories = [
@@ -60,6 +61,38 @@ const categories = [
 
 const Explore = () => {
   const [hovered, setHovered] = useState(null);
+  const navigate = useNavigate();
+
+  const handleNavigation = (category) => {
+    switch (category) {
+      case "iPhone":
+        navigate("/iphone");
+        break;
+
+      case "Mac":
+        navigate("/macbook");
+        break;
+
+      case "iPad":
+        navigate("/Store");
+        break;
+
+      case "Apple Watch":
+        navigate("/watch");
+        break;
+
+      case "AirPods":
+        navigate("/airpods");
+        break;
+
+      case "Accessories":
+        navigate("/accessories");
+        break;
+
+      default:
+        navigate("/Store");
+    }
+  };
 
   return (
     <section className="explore-section">
@@ -73,7 +106,8 @@ const Explore = () => {
           Explore by <em>category</em>
         </h2>
         <p className="explore-subtitle">
-          Every Apple product, every category — authenticated and delivered with white-glove care.
+          Every Apple product, every category — authenticated and delivered with
+          white-glove care.
         </p>
       </div>
 
@@ -100,20 +134,40 @@ const Explore = () => {
             <div className="card-footer">
               <div className="card-products">
                 {cat.products.slice(0, 3).map((p, i) => (
-                  <span key={i} className="product-chip">{p}</span>
+                  <span key={i} className="product-chip">
+                    {p}
+                  </span>
                 ))}
                 {cat.products.length > 3 && (
-                  <span className="product-chip chip-more">+{cat.products.length - 3}</span>
+                  <span className="product-chip chip-more">
+                    +{cat.products.length - 3}
+                  </span>
                 )}
               </div>
               <div className="card-cta">
                 <span className="starting-from">
                   From <strong>{cat.startingPrice}</strong>
                 </span>
-                <button className="explore-btn" aria-label={`Shop ${cat.name}`}>
+                <button
+                  className="explore-btn"
+                  onClick={() => handleNavigation(cat.name)}
+                  aria-label={`Shop ${cat.name}`}
+                >
                   <span>Shop</span>
-                  <svg className="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M3 7h8M8 3.5l4 3.5-4 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg
+                    className="btn-arrow"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                  >
+                    <path
+                      d="M3 7h8M8 3.5l4 3.5-4 3.5"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>

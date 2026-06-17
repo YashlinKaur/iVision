@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
+import { useCart } from "../Cart/CartContext";
 
 const DropdownMenu = ({ title, items, link }) => {
   const [open, setOpen] = useState(false);
@@ -58,6 +59,10 @@ const DropdownMenu = ({ title, items, link }) => {
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
+  const { cartItems } = useCart();
+
+  const totalItems = cartItems.reduce((total, item) => total + item.qty, 0);
+
   useEffect(() => {
     document.body.style.overflow = mobileMenu ? "hidden" : "auto";
   }, [mobileMenu]);
@@ -76,34 +81,53 @@ const Navbar = () => {
               link="/store"
               items={["MacBook", "iPhone", "Watch", "AirPods"]}
             />
+
             <DropdownMenu
               title="Accessories"
-              items={["Mac Accessories", "iPhone Accessories", "Watch Accessories", "AirPod Accessories"]}
+              link="/Accessories"
+              items={[
+                "Mac Accessories",
+                "iPhone Accessories",
+                "Watch Accessories",
+                "AirPod Accessories",
+              ]}
             />
-            <Link to="/aboutus" className="nav-link">About</Link>
+
+            <Link to="/aboutus" className="nav-link">
+              About
+            </Link>
           </nav>
-          
+
           <div className="auth-buttons">
-            <Link to="/login" className="login-btn">Log in</Link>
-            <Link to="/register" className="register-btn">Register</Link>
+            <Link to="/login" className="login-btn">
+              Log in
+            </Link>
+
+            <Link to="/register" className="register-btn">
+              Register
+            </Link>
           </div>
 
           <div className="cart">
-            <Link to="/cart" ><i className="fa-solid fa-cart-shopping"></i></Link>
+            <Link to="/cart" className="cart-link">
+              <i className="fa-solid fa-cart-shopping"></i>
+
+              {totalItems > 0 && (
+                <span className="cart-badge">{totalItems}</span>
+              )}
+            </Link>
           </div>
 
           <button className="mobile-toggle" onClick={() => setMobileMenu(true)}>
             <i className="fa-solid fa-bars"></i>
           </button>
         </div>
-    </header>
+      </header>
 
-      {/* Overlay */}
       {mobileMenu && (
         <div className="overlay" onClick={() => setMobileMenu(false)} />
       )}
 
-      {/* Mobile Menu */}
       <div className={`mobile-menu ${mobileMenu ? "open" : ""}`}>
         <div className="mobile-header">
           <h2>Menu</h2>
@@ -111,14 +135,41 @@ const Navbar = () => {
         </div>
 
         <div className="mobile-links">
-          <Link to="/store" onClick={() => setMobileMenu(false)}>Store</Link>
-          <Link to="/accessories" onClick={() => setMobileMenu(false)}>Accessories</Link>
-          <Link to="/aboutus" onClick={() => setMobileMenu(false)}>About</Link>
+          <Link to="/store" onClick={() => setMobileMenu(false)}>
+            Store
+          </Link>
+
+          <Link to="/accessories" onClick={() => setMobileMenu(false)}>
+            Accessories
+          </Link>
+
+          <Link to="/aboutus" onClick={() => setMobileMenu(false)}>
+            About
+          </Link>
+
+          <Link
+            to="/cart"
+            className="mobile-cart"
+            onClick={() => setMobileMenu(false)}
+          >
+            <i className="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+            {totalItems > 0 && (
+              <span className="cart-badge">{totalItems}</span>
+            )}
+          </Link>
 
           <hr />
 
-          <Link to="/login" onClick={() => setMobileMenu(false)}>Log in</Link>
-          <Link to="/register" className="mobile-register" onClick={() => setMobileMenu(false)}>
+          <Link to="/login" onClick={() => setMobileMenu(false)}>
+            Log in
+          </Link>
+
+          <Link
+            to="/register"
+            className="mobile-register"
+            onClick={() => setMobileMenu(false)}
+          >
             Register
           </Link>
         </div>
