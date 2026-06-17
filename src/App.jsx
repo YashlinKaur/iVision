@@ -8,13 +8,13 @@ import Login from "./Components/Login/Login";
 import Register from './Components/Register/Register'
 import Cart from './Components/Cart/Cart';
 
+import Storemain from './Components/Store/Storemain/Storemain'
 import Iphone from "./Components/Store/Iphone"
 import Airpods from './Components/Store/Airpods';
 import Macbook from './Components/Store/Macbook';
 import Watch from './Components/Store/Watch';
 
-import Storemain from './Components/Store/Storemain/Storemain'
-
+import Accessories from './Components/Accessories/Accessories';
 import MacAccessories from './Components/Accessories/Mac/MacAccessories'
 import IPhoneAccessories from './Components/Accessories/IPhone/IPhoneAccessories'
 import WatchAccessories from './Components/Accessories/Watch/WatchAccessories'
@@ -45,6 +45,7 @@ const App = () => {
            <Route path="/macbook" element={<Macbook/>} />
 
            {/* Accessories  */}
+           <Route path="/Accessories" element={<Accessories />} />
            <Route path="/macaccessories" element={<MacAccessories />} />
            <Route path="/iphoneaccessories" element={<IPhoneAccessories />} />
            <Route path="/watchaccessories" element={<WatchAccessories />} />
