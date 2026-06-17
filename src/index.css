@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
-/* *{
-    border : 2px solid red;
-} */
+*{
+    /* border : 2px solid red; */
+}
 
 html, body, #root {
   background-color: #ffffff !important;
