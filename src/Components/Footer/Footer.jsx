@@ -80,7 +80,7 @@ const Footer = () => {
   return (
     <footer className="ft-footer">
       <div className="ft-wordmark-bg" aria-hidden="true">
-        <span>APPLE</span>
+        <span>IVISION</span>
       </div>
 
       <div className="ft-inner">

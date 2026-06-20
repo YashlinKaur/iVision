@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import ScrollToTop from "./ScrollToTop";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Home";
@@ -12,8 +13,9 @@ import Iphone from "./Components/Store/Iphone";
 import Airpods from "./Components/Store/Airpods";
 import Macbook from "./Components/Store/Macbook";
 import Watch from "./Components/Store/Watch";
-
 import Storemain from "./Components/Store/Storemain/Storemain";
+
+import Accessories from "./Components/Accessories/Accessories";
 
 import MacAccessories from "./Components/Accessories/Mac/MacAccessories";
 import IPhoneAccessories from "./Components/Accessories/IPhone/IPhoneAccessories";
@@ -23,7 +25,6 @@ import AirpodAccessories from "./Components/Accessories/Airpod/AirpodAccessories
 import { CartProvider } from "./Components/Cart/CartContext";
 
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
-
 import PaymentSuccess from "./Components/Checkout/PaymentSuccess/PaymentSuccess";
 
 const App = () => {
@@ -49,7 +50,7 @@ const App = () => {
             <Route path="/macbook" element={<Macbook />} />
 
             {/* Accessories  */}
-            <Route path="/accessories" element={<MacAccessories />} />
+            <Route path="/accessories" element={<Accessories />} />
             <Route path="/macaccessories" element={<MacAccessories />} />
             <Route path="/iphoneaccessories" element={<IPhoneAccessories />} />
             <Route path="/watchaccessories" element={<WatchAccessories />} />

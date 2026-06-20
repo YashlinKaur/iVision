@@ -1,36 +1,12 @@
 import React from "react";
+import IPhonePage from "./IPhone/IPhonePage";
+import MacPage from "./Mac/MacPage";
 
 function Accessories() {
     return (
     <div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
-    <div>hsssssssssssssss</div>
+        <IPhonePage />
+        <MacPage />
     </div>
     )
 }

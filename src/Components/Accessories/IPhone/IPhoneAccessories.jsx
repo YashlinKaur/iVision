@@ -20,10 +20,6 @@ function IPhoneAccessories() {
               Premium iPhone accessories, curated and authenticated - cases,
               chargers, cables, and more. Everything your iPhone deserves.
             </p>
-            <div className="hero-buttons">
-              <button className="shop-btn">Shop Now</button>
-              <button className="explore-btn">Explore All</button>
-            </div>
           </div>
         </div>
       </section>

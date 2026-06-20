@@ -20,10 +20,6 @@ function MacAccessories() {
               Premium accessories, curated and authenticated - everything your
               Mac deserves.
             </p>
-            <div className="hero-buttons">
-              <button className="shop-btn">Shop Now</button>
-              <button className="explore-btn">Explore All</button>
-            </div>
           </div>
         </div>
       </section>

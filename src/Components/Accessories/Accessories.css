@@ -90,50 +90,6 @@ body {
   margin-bottom: 40px;
 }
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.shop-btn {
-  background: white;
-  color: black;
-  border: none;
-  padding: 11px 100px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: .3s;
-  width: fit-content;
-  height: fit-content;
-}
-
-.shop-btn:hover {
-  transform: translateY(-3px);
-}
-
-.explore-btn {
-  background: transparent;
-  color: white;
-  border: 1px solid rgba(255,255,255,.2);
-  padding: 11px 100px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: .3s;
-  width: fit-content;
-  height: fit-content;
-}
-
-.explore-btn:hover {
-  background: rgba(255,255,255,.08);
-}
-
 /* SECTION */
 .accessories-section {
   max-width: 1400px;

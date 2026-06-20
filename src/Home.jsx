@@ -1,7 +1,7 @@
 import React from 'react'
-import HeroPage from './Components/Home/Hero'
-import Explore from './Components/Explore/Explore'
-import Timeline from "./Components/Timeline/Timeline"
+import HeroPage from './Components/Home/Hero/Hero'
+import Explore from './Components/Home/Explore/Explore'
+import Timeline from "./Components/Home/Timeline/Timeline"
 import Footer from './Components/Footer/Footer' 
 
 function Home() {

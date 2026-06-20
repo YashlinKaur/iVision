@@ -6,12 +6,31 @@ const STEPS = [
     id: "01",
     label: "Order Placed",
     sub: "Confirmed & logged",
-    detail: "Your order is received and entered into our authenticated inventory system.",
+    detail:
+      "Your order is received and entered into our authenticated inventory system.",
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="8" width="22" height="18" rx="2" stroke="currentColor" strokeWidth="1.6"/>
-        <path d="M11 8V6a5 5 0 0 1 10 0v2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-        <path d="M11 17h10M11 21h6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+        <rect
+          x="5"
+          y="8"
+          width="22"
+          height="18"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        />
+        <path
+          d="M11 8V6a5 5 0 0 1 10 0v2"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+        <path
+          d="M11 17h10M11 21h6"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -19,11 +38,23 @@ const STEPS = [
     id: "02",
     label: "Authenticity Check",
     sub: "IMEI verified & sealed",
-    detail: "Every device is individually IMEI-verified against Apple's registry. Box seal is inspected.",
+    detail:
+      "Every device is individually IMEI-verified against Apple's registry. Box seal is inspected.",
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4l10 4v8c0 5.5-4.2 10.3-10 12C6.2 26.3 2 21.5 2 16V8l10-4z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-        <path d="M11 16l3 3 7-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path
+          d="M16 4l10 4v8c0 5.5-4.2 10.3-10 12C6.2 26.3 2 21.5 2 16V8l10-4z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M11 16l3 3 7-7"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     ),
   },
@@ -31,13 +62,33 @@ const STEPS = [
     id: "03",
     label: "Sealed & Packed",
     sub: "Anti-tamper wrapped",
-    detail: "Secured in our branded anti-tamper packaging. Photographed before dispatch.",
+    detail:
+      "Secured in our branded anti-tamper packaging. Photographed before dispatch.",
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="12" width="24" height="16" rx="2" stroke="currentColor" strokeWidth="1.6"/>
-        <path d="M4 16h24" stroke="currentColor" strokeWidth="1.4"/>
-        <path d="M12 4h8l4 8H8l4-8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-        <path d="M16 16v12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeDasharray="2 2"/>
+        <rect
+          x="4"
+          y="12"
+          width="24"
+          height="16"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        />
+        <path d="M4 16h24" stroke="currentColor" strokeWidth="1.4" />
+        <path
+          d="M12 4h8l4 8H8l4-8z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M16 16v12"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeDasharray="2 2"
+        />
       </svg>
     ),
   },
@@ -45,15 +96,26 @@ const STEPS = [
     id: "04",
     label: "Delivered",
     sub: "Same-day available",
-    detail: "White-glove delivery to your door. Same-day slots available across major cities.",
+    detail:
+      "White-glove delivery to your door. Same-day slots available across major cities.",
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 20h18V10H2z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-        <path d="M20 14h5l5 5v4h-4" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-        <circle cx="8" cy="24" r="3" stroke="currentColor" strokeWidth="1.6"/>
-        <circle cx="24" cy="24" r="3" stroke="currentColor" strokeWidth="1.6"/>
-        <path d="M11 24h10" stroke="currentColor" strokeWidth="1.4"/>
-        <path d="M2 24H5" stroke="currentColor" strokeWidth="1.4"/>
+        <path
+          d="M2 20h18V10H2z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M20 14h5l5 5v4h-4"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <circle cx="8" cy="24" r="3" stroke="currentColor" strokeWidth="1.6" />
+        <circle cx="24" cy="24" r="3" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M11 24h10" stroke="currentColor" strokeWidth="1.4" />
+        <path d="M2 24H5" stroke="currentColor" strokeWidth="1.4" />
       </svg>
     ),
   },
@@ -71,13 +133,11 @@ const UnboxingTimeline = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const idx = parseInt(entry.target.dataset.idx, 10);
-            setVisible((prev) =>
-              prev.includes(idx) ? prev : [...prev, idx]
-            );
+            setVisible((prev) => (prev.includes(idx) ? prev : [...prev, idx]));
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
     stepRefs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
@@ -97,10 +157,12 @@ const UnboxingTimeline = () => {
             <span className="ubt-eyebrow-line" />
           </p>
           <h2 className="ubt-title">
-            From order to <em>your door.</em>
+            Your Apple Journey
+            <span>in four carefully crafted steps.</span>
           </h2>
           <p className="ubt-desc">
-            Every Apple product goes through a rigorous 4-step journey before it reaches you.
+            Every Apple product goes through a rigorous 4-step journey before it
+            reaches you.
           </p>
         </header>
 
